@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Restaurant Studio — Templates</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{background:#f4f4f6;color:#1d1d1f;font-family:-apple-system,BlinkMacSystemFont,"Inter","SF Pro Text",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{min-height:100vh;display:flex;flex-direction:column;align-items:center}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+.top{width:100%;max-width:440px;padding:14px 20px 4px;text-align:center}
+.note{font-size:11px;color:#86868b;letter-spacing:.02em}
+.skins{display:inline-flex;gap:4px;margin-top:8px;padding:3px;background:#e8e8ec;border-radius:999px}
+.skins button{padding:7px 18px;border-radius:999px;font-size:13px;font-weight:500;color:#6e6e73;transition:all .25s}
+.skins button.on{background:#fff;color:#1d1d1f;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+
+/* ---------- templates ---------- */
+.app,.webf{--bg0:#f7f7f6;--bg:#f7f7f6;--ink:#151515;--mute:#8a8985;--line:rgba(0,0,0,.1);--chip:rgba(0,0,0,.05);--acc:#151515;--accink:#fff;--stage:radial-gradient(circle at 50% 40%,#fff 0%,#e9e8e5 100%);--row:#fff;--sh:0 1px 2px rgba(0,0,0,.05);--sheet:#fff;--disp:'Montserrat',sans-serif;--dw:300;--ds:normal;--wm:'Montserrat',sans-serif}
+.t-veralight{--bg0:#f7f7f6;--bg:#f7f7f6}
+.t-verasand{--bg0:#f1e0cf;--bg:linear-gradient(180deg,#f6e8da,#ead3bb);--ink:#2a2118;--mute:#8d7662;--line:rgba(80,55,30,.16);--chip:rgba(255,255,255,.5);--acc:#4a3e2b;--accink:#fff;--stage:radial-gradient(circle at 50% 40%,#fbefe2,#e5cbb0);--row:rgba(255,255,255,.55);--sh:none;--sheet:#f6e8da;--disp:'Cormorant Garamond',serif;--dw:500;--wm:'Cormorant Garamond',serif}
+.t-veradark{--bg0:#12100e;--bg:#12100e;--ink:#f1e9dc;--mute:#9d9486;--line:rgba(255,255,255,.12);--chip:rgba(255,255,255,.07);--acc:#c9a867;--accink:#1a140a;--stage:radial-gradient(circle at 50% 40%,#2d261d,#0e0c0a);--row:rgba(255,255,255,.05);--sh:none;--sheet:#17130f;--disp:'Cormorant Garamond',serif;--dw:500;--wm:'Cormorant Garamond',serif}
+.t-veramed{--bg0:#a98258;--bg:linear-gradient(180deg,#b28b62,#8f6c49);--ink:#fffaf2;--mute:#f0e0cb;--line:rgba(255,255,255,.28);--chip:rgba(255,255,255,.18);--acc:#1b1510;--accink:#fff;--stage:radial-gradient(circle at 50% 40%,#c9a47c,#7d5d3e);--row:rgba(255,255,255,.16);--sh:none;--sheet:#8f6c49;--disp:'Cormorant Garamond',serif;--dw:500;--wm:'Cormorant Garamond',serif}
+.t-noir{--bg0:#15110e;--bg:radial-gradient(120% 60% at 70% 0%,#2b231a,#0f0c0a 60%);--ink:#f3ebe0;--mute:#a09686;--line:rgba(255,255,255,.12);--chip:rgba(255,255,255,.07);--acc:#d9c4a6;--accink:#1a140a;--stage:radial-gradient(circle at 50% 40%,#342b21,#0f0c0a);--row:rgba(255,255,255,.05);--sh:none;--sheet:#17130f;--disp:'Cormorant Garamond',serif;--dw:500;--ds:italic;--wm:'Cormorant Garamond',serif}
+.t-nova{--bg0:#0d0b0a;--bg:radial-gradient(120% 60% at 30% 0%,#2a2016,#0b0908 60%);--ink:#f6eee2;--mute:#a39888;--line:rgba(255,255,255,.12);--chip:rgba(255,255,255,.07);--acc:#c99f63;--accink:#1a1208;--stage:radial-gradient(circle at 50% 40%,#30271c,#0b0908);--row:rgba(255,255,255,.05);--sh:none;--sheet:#15110d;--disp:'Cormorant Garamond',serif;--dw:500;--ds:italic;--wm:'Cormorant Garamond',serif}
+.t-kinara{--bg0:#14100c;--bg:radial-gradient(120% 70% at 20% 10%,#33281c,#0f0c09 62%);--ink:#f5ece0;--mute:#a3977f;--line:rgba(255,255,255,.12);--chip:rgba(255,255,255,.07);--acc:#d9a45a;--accink:#1a1208;--stage:radial-gradient(circle at 50% 40%,#35291c,#0f0c09);--row:rgba(255,255,255,.05);--sh:none;--sheet:#17120d;--disp:'Cormorant Garamond',serif;--dw:500;--ds:italic;--wm:'Cormorant Garamond',serif}
+.t-lumina{--bg0:#0f0c0a;--bg:radial-gradient(120% 60% at 50% 0%,#2a2017,#0d0a08 60%);--ink:#f6ede1;--mute:#a09584;--line:rgba(255,255,255,.12);--chip:rgba(255,255,255,.07);--acc:#e0a864;--accink:#1a1208;--stage:radial-gradient(circle at 50% 40%,#33281c,#0d0a08);--row:rgba(255,255,255,.05);--sh:none;--sheet:#16110d;--disp:'Cormorant Garamond',serif;--dw:500;--ds:italic;--wm:'Cormorant Garamond',serif}
+.t-velora{--bg0:#dfe3ea;--bg:linear-gradient(180deg,#e3e7ee,#c8d0dc);--ink:#122033;--mute:#5f6f84;--line:rgba(18,32,51,.14);--chip:rgba(255,255,255,.6);--acc:#2d7bff;--accink:#fff;--stage:radial-gradient(circle at 50% 40%,#f2f5f9,#bccadb);--row:rgba(255,255,255,.62);--sh:0 4px 18px rgba(40,70,120,.08);--sheet:#e8edf3;--disp:'Cormorant Garamond',serif;--dw:500;--wm:'Cormorant Garamond',serif}
+.t-maison{--bg0:#f3ece3;--bg:#f3ece3;--ink:#17120d;--mute:#85796b;--line:rgba(30,20,10,.14);--chip:rgba(255,255,255,.55);--acc:#17120d;--accink:#fff;--stage:radial-gradient(circle at 50% 40%,#faf5ee,#e5dacb);--row:rgba(255,255,255,.6);--sh:none;--sheet:#f3ece3;--disp:'Cormorant Garamond',serif;--dw:500;--wm:'Cormorant Garamond',serif}
+.t-velora .rsv{box-shadow:inset 0 0 0 1px var(--acc);color:var(--acc)}
+.app.dk .rsv{box-shadow:inset 0 0 0 1px var(--acc);color:var(--acc)}
+.t-veramed .rsv{box-shadow:inset 0 0 0 1px #fff;color:#fff}
+
+.app{position:relative;width:100%;max-width:420px;height:calc(100svh - 96px);min-height:640px;overflow:hidden;background:var(--bg);color:var(--ink);transition:background .5s,color .5s}
+@media(min-width:520px){.app{height:800px;margin:8px 0 40px;border-radius:44px;box-shadow:0 30px 80px rgba(0,0,0,.14)}}
+.disp{font-family:var(--disp);font-weight:var(--dw);font-style:var(--ds);letter-spacing:-.01em}
+
+/* header + tabs */
+.hdr.solid{background:linear-gradient(var(--bg0) 82%,transparent)}
+.hdr{transition:background .3s;position:absolute;top:0;left:0;right:0;height:64px;padding:0 16px;display:flex;align-items:center;justify-content:space-between;z-index:5}
+.hdr .logo{text-align:center;line-height:1.15}
+.hdr .logo b{display:block;font-family:var(--disp);font-weight:500;font-size:19px;letter-spacing:.32em;padding-left:.32em;font-style:normal}
+.hdr .logo span{font-size:7.5px;letter-spacing:.34em;color:var(--mute)}
+.hdr .l,.hdr .r{display:flex;align-items:center;gap:6px;min-width:96px}
+.hdr .r{justify-content:flex-end}
+.lang{font-size:12px;font-weight:600;padding:7px 10px;border-radius:999px;background:var(--chip);letter-spacing:.04em}
+.ibtn{position:relative;width:34px;height:34px;display:grid;place-items:center;border-radius:50%}
+.ibtn svg{width:21px;height:21px}
+.badge{position:absolute;top:1px;right:0;min-width:16px;height:16px;border-radius:8px;background:var(--acc);color:var(--accink);font-size:10px;font-weight:600;display:none;place-items:center;padding:0 4px}
+.rsv{font-size:12px;font-weight:500;padding:8px 13px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--ink)}
+.tabs{position:absolute;left:0;right:0;bottom:0;height:72px;padding:6px 14px 10px;display:flex;justify-content:space-around;z-index:5;background:linear-gradient(0deg,var(--sheet) 55%,transparent);}
+.tabs button{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px;color:var(--mute);padding:6px 12px;transition:color .25s}
+.tabs button svg{width:22px;height:22px}
+.tabs button.on{color:var(--acc)}
+.t-veralight .tabs button.on,.t-maison .tabs button.on,.t-verasand .tabs button.on{color:var(--ink)}.t-veramed .tabs button.on{color:#fff}
+
+.view{position:absolute;inset:64px 0 72px 0;padding:6px 20px 24px;overflow-y:auto;opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .4s,transform .4s;scrollbar-width:none}
+.view::-webkit-scrollbar{display:none}
+.view.on{opacity:1;pointer-events:auto;transform:none}
+
+/* shared */
+.eyebrow{font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--acc);color:var(--accink);font-weight:500;font-size:15px;padding:13px 26px;border-radius:999px;transition:transform .15s,opacity .2s}
+.pill:active{transform:scale(.97)}
+.pill.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.pill[disabled]{opacity:.4;pointer-events:none}
+.pill svg{width:18px;height:18px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:2px 0;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;padding:8px 14px;border-radius:999px;font-size:13px;font-weight:500;background:var(--chip);color:var(--mute);transition:all .2s;white-space:nowrap}
+.chip.on{background:var(--acc);color:var(--accink)}
+
+/* menu */
+.hero{text-align:center;padding:6px 0 4px}
+.hero img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:22px;display:block}
+.hero .eyebrow{margin-top:18px}
+.hero h1{font-size:38px;line-height:1.02;margin-top:6px}
+.hero p{margin-top:8px;font-size:15px;color:var(--mute)}
+.hero .pill{margin-top:16px}
+.cats{display:flex;justify-content:center;gap:20px;margin:22px 0 12px}
+.cats button{font-size:14px;color:var(--mute);padding:6px 0;position:relative;transition:color .2s}
+.cats button.on{color:var(--ink);font-weight:600}
+.cats button.on::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;border-radius:1px;background:var(--acc)}
+.list{margin-top:14px;display:flex;flex-direction:column;gap:10px}
+.drow{display:flex;align-items:center;gap:14px;padding:10px;border-radius:20px;background:var(--row);box-shadow:var(--sh);cursor:pointer;transition:transform .15s}
+.drow:active{transform:scale(.99)}
+.drow img{width:78px;height:78px;border-radius:14px;object-fit:cover;flex:none}
+.dmeta{flex:1;min-width:0}
+.dmeta b{display:block;font-size:16px;font-weight:600;letter-spacing:-.01em}
+.dmeta span{display:block;font-size:12.5px;color:var(--mute);margin-top:2px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.dmeta em{font-style:normal;font-size:15px;font-weight:600;display:block;margin-top:5px}
+.heart{width:36px;height:36px;display:grid;place-items:center;border-radius:50%;color:var(--mute);flex:none}
+.heart svg{width:20px;height:20px}
+.heart.on{color:#e0405a}
+.empty{padding:34px 10px;text-align:center;color:var(--mute);font-size:15px;line-height:1.4}
+
+/* dish */
+.back{display:flex;align-items:center;gap:4px;font-size:14px;color:var(--mute);padding:4px 0}
+.back svg{width:18px;height:18px}
+.trow{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-top:8px}
+.trow h2{font-size:32px;line-height:1.05}
+.price{font-size:22px;font-weight:600}
+.stage{position:relative;margin-top:14px;aspect-ratio:1/1;border-radius:28px;background:var(--stage);overflow:hidden}
+.stage canvas{position:absolute;inset:0;width:100%!important;height:100%!important;touch-action:pan-y;cursor:grab}
+.stage.photo img{width:100%;height:100%;object-fit:cover;animation:kb 14s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.1)}}
+.stage .tag{position:absolute;left:14px;bottom:12px;font-size:11px;color:var(--mute);pointer-events:none;z-index:2;text-shadow:0 0 8px var(--sheet)}
+.nav{position:absolute;top:50%;width:38px;height:38px;margin-top:-19px;border-radius:50%;display:grid;place-items:center;background:var(--chip);color:var(--ink);z-index:3;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.nav.p{left:12px}.nav.n{right:12px}.nav svg{width:18px;height:18px}
+.acts{display:flex;gap:10px;margin-top:16px;align-items:center}
+.acts .pill{flex:1}
+.sq{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;box-shadow:inset 0 0 0 1px var(--line);flex:none}
+.sq svg{width:21px;height:21px}
+.sq.on{color:#e0405a}
+.pairline{margin-top:12px;font-size:14px;color:var(--mute);line-height:1.4;max-height:0;overflow:hidden;transition:max-height .3s}
+.pairline.on{max-height:60px}
+.sec{margin-top:22px}
+.sec h3{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);font-weight:500;margin-bottom:10px}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag2{padding:7px 13px;border-radius:999px;font-size:13px;background:var(--chip)}
+.tag2.al{box-shadow:inset 0 0 0 1px var(--line);background:transparent}
+.conf{margin-top:8px;font-size:12px;color:var(--mute)}
+.chef{font-size:15px;line-height:1.5;color:var(--ink)}
+.addrow{margin-top:24px}
+.addrow .pill{width:100%}
+
+/* ask */
+.askh h1{font-size:34px;line-height:1.05}
+.askh p{margin-top:6px;font-size:15px;color:var(--mute)}
+.langs{display:flex;gap:6px;margin-top:14px}
+.chat{margin-top:14px;display:flex;flex-direction:column;gap:10px;min-height:150px}
+.msg{max-width:86%;padding:11px 15px;border-radius:20px;font-size:15.5px;line-height:1.4;animation:in .35s ease}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.msg.a{background:var(--chip);align-self:flex-start;border-bottom-left-radius:6px}
+.msg.u{background:var(--acc);color:var(--accink);align-self:flex-end;border-bottom-right-radius:6px}
+.msg .ph{display:flex;gap:8px;margin-top:10px}
+.msg .ph img{width:62px;height:62px;object-fit:cover;border-radius:12px}
+.typing i{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--mute);margin:0 2px;animation:pulse 1s infinite}
+.typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
+@keyframes pulse{0%,100%{opacity:.25}50%{opacity:1}}
+.sugg{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.sugg button{padding:9px 15px;border-radius:999px;font-size:13.5px;font-weight:500;box-shadow:inset 0 0 0 1px var(--line);color:var(--ink)}
+.askform{display:flex;gap:8px;margin-top:14px}
+.askform input{flex:1;min-width:0;font:inherit;font-size:16px;background:var(--chip);color:var(--ink);border:0;border-radius:999px;padding:12px 16px;outline:none}
+.askform input::placeholder{color:var(--mute)}
+.askform button{width:44px;height:44px;border-radius:50%;background:var(--acc);color:var(--accink);display:grid;place-items:center;flex:none}
+.askform button svg{width:20px;height:20px}
+.askform .mic{background:var(--chip);color:var(--ink)}
+.fine{margin-top:10px;font-size:11px;color:var(--mute);text-align:center;min-height:14px}
+
+/* saved */
+.savedh h1{font-size:34px;line-height:1.05;margin-bottom:6px}
+
+/* sheet */
+.scrim{position:absolute;inset:0;background:rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .3s;z-index:30}
+.scrim.on{opacity:1;pointer-events:auto}
+.sheet{position:absolute;left:0;right:0;bottom:0;background:var(--sheet);color:var(--ink);border-radius:28px 28px 0 0;padding:22px 22px 30px;transform:translateY(105%);transition:transform .38s cubic-bezier(.2,.8,.2,1);z-index:31;max-height:80%;overflow-y:auto}
+.sheet.on{transform:none}
+.sheet h3{font-size:26px;margin-bottom:14px}
+.sheet .lab{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);margin:16px 0 8px}
+.line{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--line);font-size:16px}
+.sheet .pill{width:100%;margin-top:20px}
+.sheet .msgfine{margin-top:12px;font-size:13px;color:var(--mute);text-align:center}
+
+/* AR */
+.ar{position:absolute;inset:0;z-index:40;background:#111;opacity:0;pointer-events:none;transition:opacity .4s}
+.ar.on{opacity:1;pointer-events:auto}
+.ar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 70%}
+.arhost{position:absolute;left:50%;bottom:11%;width:min(100%,360px);aspect-ratio:1;transform:translateX(-50%)}
+.arhost canvas{position:absolute;inset:0;width:100%!important;height:100%!important;touch-action:pan-y}
+.arscan{position:absolute;top:22%;left:0;right:0;text-align:center;color:#fff;font-size:17px;text-shadow:0 1px 12px rgba(0,0,0,.45);transition:opacity .5s}
+.arscan i{display:inline-block;width:6px;height:6px;border-radius:50%;background:#fff;margin:0 3px;animation:pulse 1s infinite}
+.arscan i:nth-child(2){animation-delay:.2s}.arscan i:nth-child(3){animation-delay:.4s}
+.arbottom{position:absolute;left:0;right:0;bottom:26px;text-align:center;color:#fff;transition:opacity .5s}
+.arbottom p{font-size:15px;text-shadow:0 1px 10px rgba(0,0,0,.5);margin-bottom:12px}
+.arbottom button{background:rgba(255,255,255,.92);color:#1d1d1f;padding:11px 26px;border-radius:999px;font-weight:600;font-size:15px}
+.artag{position:absolute;top:18px;left:0;right:0;text-align:center;color:rgba(255,255,255,.92);font-size:11px;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.toast{position:absolute;left:50%;bottom:90px;transform:translate(-50%,20px);background:var(--ink);color:var(--sheet);padding:10px 16px;border-radius:999px;font-size:13px;opacity:0;pointer-events:none;transition:all .3s;z-index:50;white-space:nowrap}
+.dk .toast{background:var(--acc);color:var(--accink)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* hero */
+.heroimg{height:300px;margin:0 -20px;background-size:cover;background-position:center;-webkit-mask-image:linear-gradient(#000 62%,transparent);mask-image:linear-gradient(#000 62%,transparent)}
+.hero{margin-top:-36px;position:relative}
+.hero .acts2{display:flex;justify-content:center;gap:12px;margin-top:16px}
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:20px}
+.quick button{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 4px;border-radius:18px;background:var(--row);box-shadow:var(--sh);font-size:12px;color:var(--ink)}
+.quick button svg{width:22px;height:22px}
+.askpill{display:flex;align-items:center;gap:10px;margin-top:18px;padding:6px 6px 6px 16px;border-radius:999px;background:var(--row);box-shadow:inset 0 0 0 1px var(--acc);font-size:15px;color:var(--mute);text-align:left;width:100%}
+.askpill svg{width:18px;height:18px;color:var(--acc);flex:none}
+.askpill span{flex:1}
+.askpill i{width:38px;height:38px;border-radius:50%;background:var(--acc);color:var(--accink);display:grid;place-items:center;font-style:normal}
+.askpill i svg{color:var(--accink);width:18px;height:18px}
+.orb{display:block;margin:22px auto 8px;width:78px;height:78px;border-radius:50%;box-shadow:inset 0 0 0 1.5px var(--acc),0 0 30px rgba(217,164,90,.35);display:grid;place-items:center;color:var(--acc);animation:glow 3s ease-in-out infinite}
+.orb svg{width:30px;height:30px}
+@keyframes glow{0%,100%{box-shadow:inset 0 0 0 1.5px var(--acc),0 0 18px rgba(217,164,90,.25)}50%{box-shadow:inset 0 0 0 1.5px var(--acc),0 0 38px rgba(217,164,90,.55)}}
+.orbt{text-align:center;font-size:14px;color:var(--mute)}
+.guide{margin-top:16px;text-align:left}
+.guide button{display:flex;align-items:center;gap:14px;width:100%;padding:14px 2px;border-bottom:1px solid var(--line);text-align:left}
+.guide button svg.l{width:26px;height:26px;flex:none;color:var(--ink)}
+.guide b{display:block;font-family:var(--disp);font-size:19px;font-weight:600}
+.guide span{display:block;font-size:12.5px;color:var(--mute);margin-top:2px}
+.guide button svg.r{width:16px;height:16px;margin-left:auto;color:var(--mute);flex:none}
+.badge360{position:absolute;left:12px;top:12px;width:62px;height:62px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--acc);color:var(--ink);display:grid;place-items:center;text-align:center;font-size:10px;line-height:1.15;z-index:3;background:var(--chip);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.badge360 b{display:block;font-size:12px}
+.sech{margin-top:24px;font-family:var(--disp);font-weight:var(--dw);font-style:var(--ds);font-size:26px}
+.stage.photo img{animation:none}
+.tpls{display:flex;gap:6px;margin:8px auto 0;padding:3px;max-width:440px;overflow-x:auto;scrollbar-width:none}
+.tpls::-webkit-scrollbar{display:none}
+.tpls button{flex:none;padding:7px 13px;border-radius:999px;font-size:12.5px;font-weight:500;color:#6e6e73;background:#e8e8ec;white-space:nowrap}
+.tpls button.on{background:#1d1d1f;color:#fff}
+.hdr .logo b{font-family:var(--wm)}
+
+u.rec{display:inline-flex;align-items:center;gap:4px;text-decoration:none;font-size:11px;padding:3px 9px;border-radius:999px;background:var(--chip);color:var(--acc);margin-bottom:4px}
+u.rec svg{width:11px;height:11px}
+.t-veralight u.rec,.t-maison u.rec,.t-verasand u.rec{color:var(--ink)}
+.dmeta small{display:block;font-size:11.5px;color:var(--mute);margin-top:3px}
+.stats{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.stats div{display:flex;align-items:center;gap:10px;font-size:13.5px;padding:10px 14px;border-radius:14px;background:var(--chip)}
+.stats svg{width:18px;height:18px;flex:none;color:var(--mute)}
+.pairrow{display:flex;align-items:center;gap:14px;margin-top:14px;padding:12px 4px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.pairrow svg{width:24px;height:24px;flex:none}
+.pairrow small{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.pairrow b{font-size:15px;font-weight:600}
+.custom{margin-top:16px}
+.custom .ch{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.custom .ch span{font-size:13px;color:var(--acc)}
+.custom input{width:100%;accent-color:var(--acc)}
+.custom .ends{display:flex;justify-content:space-between;font-size:11px;color:var(--mute)}
+.qrrow{display:flex;align-items:center;gap:16px;margin-top:26px;padding-top:18px;border-top:1px solid var(--line)}
+.qr{width:74px;flex:none;text-align:center}
+.qr svg{width:74px;height:74px;display:block;background:#fff;color:#111;padding:5px;border-radius:8px}
+.qr em{font-size:9px;color:var(--mute);font-style:normal}
+.qrrow b{display:block;font-size:19px;line-height:1.1}
+.qrrow span{display:block;font-size:12.5px;color:var(--mute);margin-top:4px}
+.aibar{display:flex;align-items:center;gap:14px;width:100%;margin-top:18px;padding:16px 18px;border-radius:26px;background:var(--acc);color:var(--accink);text-align:left}
+.aibar>svg:first-child{width:30px;height:30px;flex:none}
+.aibar b{display:block;font-size:20px;font-weight:600}
+.aibar span{display:block;font-size:12.5px;opacity:.8;margin-top:2px;line-height:1.3}
+.aibar>svg:last-child{width:18px;height:18px;margin-left:auto;flex:none}
+
+/* immersive menu cards */
+.list{gap:0}
+.dcard{position:relative;margin:0 -20px;cursor:pointer;padding-bottom:6px}
+.dimg{height:400px;background-size:cover;background-position:center;-webkit-mask-image:linear-gradient(transparent,#000 16%,#000 52%,transparent 98%);mask-image:linear-gradient(transparent,#000 16%,#000 52%,transparent 98%)}
+.dtop{position:absolute;top:34px;right:20px;display:flex;gap:10px}
+.gl{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:rgba(20,16,12,.38);color:#fff;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.28);flex:none}
+.gl svg{width:19px;height:19px}.gl.red{color:#ff5a76}
+.dtxt{position:relative;margin-top:-132px;padding:70px 26px 34px;background:linear-gradient(transparent,var(--bg0) 46%)}
+.dtxt h3{font-size:34px;line-height:1.02}
+.dtxt p{margin-top:8px;font-size:14.5px;line-height:1.45;color:var(--mute);max-width:330px}
+.dfoot{display:flex;align-items:center;gap:12px;margin-top:14px}
+.dprice{font-size:20px;font-weight:600}
+.dtags{flex:1;font-size:11.5px;color:var(--mute);letter-spacing:.02em}
+.dfoot .heart{width:40px;height:40px}
+/* immersive dish page */
+#v-dish{inset:0 0 72px 0;padding:0 0 40px}
+.dhero{position:relative;height:520px}
+.dbg{position:absolute;inset:0;background-size:cover;background-position:center;-webkit-mask-image:linear-gradient(#000 60%,transparent);mask-image:linear-gradient(#000 60%,transparent)}
+.dhero.is3d{background:var(--stage);-webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}
+.stage3{position:absolute;left:0;right:0;bottom:30px;aspect-ratio:1/1}
+.stage3 canvas{position:absolute;inset:0;width:100%!important;height:100%!important;touch-action:pan-y;cursor:grab}
+.htop{position:absolute;top:72px;left:16px;right:16px;display:flex;justify-content:space-between;z-index:4}
+.bigplay{position:absolute;left:50%;top:46%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;display:grid;place-items:center;background:rgba(20,16,12,.34);color:#fff;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.55)}
+.bigplay svg{width:30px;height:30px;margin-left:4px}
+.dhero .nav{top:46%}
+.dhead{padding:0 26px;margin-top:-70px;position:relative;text-align:left}
+.dhead h2{font-size:42px;line-height:1.0;margin-top:8px}
+.ddesc{margin-top:12px;font-size:15.5px;line-height:1.5;color:var(--mute);max-width:340px}
+.dprice2{margin-top:14px;font-size:26px;font-weight:600}
+.dock{display:flex;gap:26px;padding:30px 26px 6px}
+.dock button{display:flex;flex-direction:column;align-items:center;gap:9px;font-size:12px;color:var(--mute)}
+.dock i{width:62px;height:62px;border-radius:50%;display:grid;place-items:center;box-shadow:inset 0 0 0 1.2px var(--line);color:var(--ink)}
+.dock i svg{width:24px;height:24px}
+.dock .ai i{background:var(--acc);color:var(--accink);box-shadow:none}
+.dock .ai span{color:var(--acc)}
+.t-veralight .dock .ai span,.t-maison .dock .ai span,.t-verasand .dock .ai span{color:var(--ink)}
+.blk{padding:0 26px;margin-top:54px}
+.lab2{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--mute);margin-bottom:18px}
+.glance{display:grid;grid-template-columns:repeat(3,1fr);text-align:center}
+.glance div{display:flex;flex-direction:column;align-items:center;gap:6px}
+.glance div+div{border-left:1px solid var(--line)}
+.glance svg{width:22px;height:22px;color:var(--mute)}
+.glance b{font-family:var(--disp);font-size:40px;font-weight:var(--dw);font-style:var(--ds);line-height:1}
+.glance span{font-size:12px;color:var(--mute)}
+.fine2{margin-top:16px;font-size:11.5px;color:var(--mute);line-height:1.4}
+.spice{display:flex;align-items:center;gap:12px}
+.chili{width:46px;height:46px;color:var(--mute);opacity:.45;transition:all .25s;transform:rotate(-8deg)}
+.chili svg{width:100%;height:100%;fill:transparent}
+.chili.on{color:#e0452c;opacity:1;transform:rotate(-8deg) scale(1.1)}
+.chili.on svg{fill:#e0452c}
+.spice span{margin-left:8px;font-size:15px;color:var(--ink)}
+.pairbig{display:flex;align-items:center;gap:16px}
+.pairbig svg{width:34px;height:34px;flex:none}
+.pairbig span{font-size:24px;line-height:1.15}
+.ingr{display:flex;flex-direction:column}
+.ingr span{font-family:var(--disp);font-size:24px;font-weight:var(--dw);font-style:var(--ds);padding:12px 0;border-bottom:1px solid var(--line)}
+.ingr span:first-child{border-top:1px solid var(--line)}
+.algs{display:flex;gap:28px;flex-wrap:wrap}
+.alg{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:12.5px}
+.alg svg{width:34px;height:34px}
+.chefq{font-size:25px;line-height:1.3}
+.addrow{padding:0 26px;margin-top:56px}
+.addrow .pill{width:100%;padding:17px}
+#v-dish .nav{z-index:3}
+/* video */
+.vid{position:absolute;inset:0;z-index:45;background:#000;overflow:hidden;opacity:0;pointer-events:none;transition:opacity .4s}
+.vid.on{opacity:1;pointer-events:auto}
+.vimg{position:absolute;inset:0;background:center/cover no-repeat;transform:scale(1.05)}
+.vid.on .vimg{animation:kbv 9s ease-out infinite alternate}
+@keyframes kbv{from{transform:scale(1.05) translate(0,0)}to{transform:scale(1.3) translate(-3%,-3%)}}
+.vshade{position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.35),transparent 30%,transparent 55%,rgba(0,0,0,.75))}
+.vx{position:absolute;top:70px;right:16px;font-size:26px;line-height:1;z-index:2}
+.vbot{position:absolute;left:26px;right:26px;bottom:44px;color:#fff;z-index:2}
+.vbot b{display:block;font-size:34px;line-height:1.05;margin-bottom:6px}
+.vbot span{font-size:12.5px;opacity:.8}
+.vtrack{margin-top:16px;height:2px;background:rgba(255,255,255,.3);border-radius:1px;overflow:hidden}
+.vtrack i{display:block;height:100%;width:0;background:#fff;animation:vp 9s linear infinite}
+@keyframes vp{to{width:100%}}
+.dtxt .heart{color:var(--mute)}
+
+/* ===== faithful phone layouts ===== */
+.t-veralight .sech,.t-velora .sech,.t-lumina .sech{display:none}
+.app.notabs .view{bottom:0;padding-bottom:44px}
+.app.notabs #v-dish{bottom:0}
+.drow .heart{display:none}
+.ph img{display:block;width:100%}
+.ph.vlh{margin:4px -20px 0}
+.ph.vlh img{-webkit-mask-image:linear-gradient(transparent,#000 10%,#000 86%,transparent);mask-image:linear-gradient(transparent,#000 10%,#000 86%,transparent)}
+.ph.full{margin:-64px -20px 0;-webkit-mask-image:linear-gradient(#000 74%,transparent);mask-image:linear-gradient(#000 74%,transparent)}
+.ph.maih{margin:0 -20px;-webkit-mask-image:linear-gradient(#000 72%,transparent);mask-image:linear-gradient(#000 72%,transparent)}
+.hc{text-align:center;padding:4px 4px 0;position:relative}
+.hc.top{padding-top:34px}.hc.left{text-align:left}
+.hc h1{line-height:1.05;margin-top:10px}
+.hc p{margin-top:10px;font-size:15px;color:var(--mute);line-height:1.4}
+.hc p.it{font-family:var(--disp);font-style:italic;font-size:17px}
+.hc .pill{margin-top:20px}
+.eyebrow.dash{letter-spacing:.24em}
+.gline{display:block;width:36px;height:2px;background:var(--acc);margin:16px auto 0}
+.pstrip{margin:24px -20px 0}.pstrip img{display:block;width:100%}
+.pstrip.fade{-webkit-mask-image:linear-gradient(transparent,#000 22%,#000 82%,transparent);mask-image:linear-gradient(transparent,#000 22%,#000 82%,transparent)}
+.pstrip.top0{margin-top:2px}
+.vtiles{display:grid;gap:10px;margin-top:22px}.t3{grid-template-columns:repeat(3,1fr)}.t4{grid-template-columns:repeat(4,1fr)}
+.vt{display:flex;flex-direction:column;align-items:center;gap:7px;padding:15px 4px 12px;border-radius:18px;background:var(--row);box-shadow:var(--sh);font-size:12.5px;color:var(--ink)}
+.vt svg{width:24px;height:24px}.vt.on{background:#c3a685;color:#fff}
+.glass .vt{background:rgba(255,255,255,.55)}.glass .vt.on{background:rgba(45,123,255,.16);color:var(--acc)}
+.t-veramed .vt{background:rgba(255,255,255,.28);color:#fff}
+.t-veramed .pill{background:#1b1510}
+.t-verasand .pill{background:#4a3e2b}
+.hc.noir{margin-top:-40px}.hc.noir .pr{margin-top:8px;font-size:22px}
+.cta2{display:flex;gap:12px;justify-content:center;align-items:center;margin-top:16px}
+.pill.beige{background:linear-gradient(#e8d5b8,#c8ac86);color:#2b2016;margin:0!important;padding:13px 34px}
+.rcir{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;box-shadow:inset 0 0 0 1px var(--line);flex:none;color:var(--ink)}
+.rcir svg{width:18px;height:18px}
+.rcir.big{width:48px;height:48px;box-shadow:inset 0 0 0 1px var(--acc)}
+.dots{display:flex;gap:6px;justify-content:center;margin-top:16px}.dots i{width:22px;height:3px;border-radius:2px;background:var(--line)}.dots i.on{background:var(--ink)}
+.thumbs{display:flex;gap:12px;margin-top:20px;justify-content:center}
+.thumbs button{width:96px;height:86px;border-radius:18px;overflow:hidden;padding:0;box-shadow:inset 0 0 0 1px var(--line)}
+.thumbs button.on{box-shadow:0 0 0 1.5px var(--acc)}.thumbs img{width:100%;height:100%;object-fit:cover}
+.circs{display:flex;justify-content:space-around;margin-top:24px}
+.circs button{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:12px;color:var(--mute)}
+.circs i{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;box-shadow:inset 0 0 0 1px var(--line);color:var(--ink)}
+.circs i.on{box-shadow:inset 0 0 0 1.5px var(--acc);color:var(--acc)}.circs svg{width:22px;height:22px}
+.arcard{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;margin-top:24px;padding:14px 10px 14px 20px;border-radius:22px;background:var(--row);text-align:left;overflow:hidden;box-shadow:inset 0 0 0 1px var(--line)}
+.arcard b{display:block;font-size:24px}.arcard span{display:block;font-size:12.5px;color:var(--mute);margin-top:4px;line-height:1.35}
+.arcard img{width:46%;border-radius:14px}
+.kin{position:relative;height:540px;margin:0 -20px}
+.kin .leaf{position:absolute;left:0;top:14px;height:340px;-webkit-mask-image:linear-gradient(90deg,#000 55%,transparent);mask-image:linear-gradient(90deg,#000 55%,transparent)}
+.kin h1{position:absolute;left:46%;right:22px;top:120px;font-size:30px;line-height:1.12;text-align:left}
+.kin .orb{position:absolute;left:50%;margin:0 0 0 -39px;top:340px}
+.kin .orbt{position:absolute;left:0;right:0;top:436px}
+.hc.lum{display:flex;align-items:center;justify-content:space-between;text-align:left;margin-top:-22px}
+.vel{display:flex;align-items:center;gap:4px;margin-top:6px}.vel>div{flex:1}.vel h1{line-height:1.04}
+.vel p{font-size:13.5px;color:var(--mute);margin-top:10px;line-height:1.4}
+.vel img{width:46%;-webkit-mask-image:radial-gradient(closest-side,#000 68%,transparent);mask-image:radial-gradient(closest-side,#000 68%,transparent)}
+.askbar{display:flex;align-items:center;gap:12px;width:100%;margin-top:18px;padding:6px 6px 6px 18px;border-radius:999px;background:rgba(255,255,255,.5);box-shadow:inset 0 0 0 1.5px var(--acc),0 0 22px rgba(45,123,255,.3);color:var(--ink);text-align:left;font-size:15px}
+.askbar svg{width:20px;height:20px;color:var(--acc);flex:none}.askbar span{flex:1;color:var(--mute)}
+.askbar i{width:44px;height:44px;border-radius:50%;background:var(--acc);color:var(--accink);display:grid;place-items:center;font-style:normal;flex:none}.askbar i svg{color:var(--accink)}
+.askbar.light{background:transparent;box-shadow:inset 0 0 0 1px var(--line)}.askbar.light i{background:var(--ink)}
+.sigh{display:flex;align-items:baseline;justify-content:space-between;margin-top:26px}.sigh h2{font-size:26px}
+.sigh button{font-size:13px;color:var(--acc);display:flex;gap:4px;align-items:center}.sigh svg{width:14px;height:14px}
+.pillcats{justify-content:space-between;margin:20px 0 10px}
+.pillcats button{padding:12px 16px}
+.pillcats button.on{background:#fff;box-shadow:0 4px 14px rgba(0,0,0,.09);border-radius:999px;padding:14px 22px}.pillcats button.on::after{display:none}
+.t-veralight .dmeta b,.t-veralight .dmeta span,.t-veralight .dmeta em,.t-veralight h1+p{font-family:'Cormorant Garamond',serif}
+.t-veralight .dmeta b{font-size:19px}.t-veralight .dmeta span{font-size:14px}
+.t-veralight .drow{padding:14px;border-radius:24px}.t-veralight .drow img{width:118px;height:96px;border-radius:18px;background:#f1f1f0}
+.chev{width:20px;flex:none;color:var(--ink);padding-right:2px}.chev svg{width:18px;height:18px}
+.blist button{display:flex;gap:16px;align-items:center;width:100%;padding:15px 0;border-bottom:1px solid var(--line);font-size:17px;text-align:left}.blist svg{width:22px;height:22px;flex:none}
+.tabs-velora{left:14px;right:14px;bottom:12px;height:64px;border-radius:30px;background:#18253a;padding:6px 8px}
+.tabs-velora button{color:#9db0cb;flex:1}.tabs-velora button.on{color:#fff;background:rgba(45,123,255,.4);border-radius:22px}
+.modes{display:inline-flex;gap:4px;padding:3px;background:#e8e8ec;border-radius:999px;margin-top:8px}
+.modes button{padding:6px 16px;border-radius:999px;font-size:13px;font-weight:500;color:#6e6e73}.modes button.on{background:#fff;color:#1d1d1f;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+body.webmode .app{display:none}
+#web{display:none;width:100%;justify-content:center;padding:10px 12px 50px}
+body.webmode #web{display:flex}
+/* website */
+.webf{position:relative;width:min(1120px,100%);min-height:640px;border-radius:30px;overflow:hidden;background:var(--bg);color:var(--ink);font-family:-apple-system,"Inter",sans-serif;box-shadow:0 30px 80px rgba(0,0,0,.14);padding-bottom:34px}
+.wnav{display:flex;align-items:center;gap:30px;padding:30px 44px}
+.wlogo{font-family:var(--wm);letter-spacing:.34em;font-size:26px;line-height:1.1;text-align:left}.wlogo small{display:block;font-size:8px;letter-spacing:.34em;color:var(--mute);font-family:Inter,sans-serif}
+.wnav nav{display:flex;gap:30px;font-family:var(--disp);font-size:17px;flex:1;justify-content:center;font-style:normal}
+.wnav nav span.on{border-bottom:1.5px solid var(--acc);padding-bottom:4px}
+.wr{display:flex;gap:14px;align-items:center}.wr .rsv{font-family:var(--disp);font-size:16px;padding:10px 24px}.wr svg{width:22px;height:22px}
+.whero{position:relative;display:flex;align-items:center;min-height:380px;padding:0 44px}
+.wtxt{position:relative;z-index:2;width:44%}
+.wtxt h1{font-size:62px;line-height:1.02;margin-top:14px}
+.wtxt p{margin-top:16px;font-size:20px;font-family:var(--disp);font-style:italic;color:var(--mute);max-width:380px}
+.wtxt .wbtn{display:inline-flex;gap:10px;align-items:center;margin-top:28px;padding:15px 30px;border-radius:999px;background:var(--acc);color:var(--accink);font-family:var(--disp);font-size:18px}
+.wtxt .wbtn svg{width:18px}
+.wimg{position:absolute;right:0;top:-10px;bottom:-10px;width:62%;background-size:cover;background-position:center;-webkit-mask-image:linear-gradient(90deg,transparent,#000 30%);mask-image:linear-gradient(90deg,transparent,#000 30%)}
+.wcats{display:flex;justify-content:center;gap:46px;margin-top:26px;padding:0 30px}
+.wcats button{display:flex;flex-direction:column;align-items:center;gap:8px;font-family:var(--disp);font-size:16px;color:var(--mute);padding:8px 10px}
+.wcats button svg{width:30px;height:30px}.wcats button.on{color:var(--ink);border-bottom:1.5px solid var(--acc)}
+.wcards{display:flex;align-items:center;gap:16px;padding:26px 30px 0}
+.warr{width:42px;height:42px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--line);display:grid;place-items:center;flex:none}.warr svg{width:18px}
+.wc{flex:1;cursor:pointer}
+.wc .im{height:170px;border-radius:24px;background-size:cover;background-position:center}
+.wc .t{display:flex;justify-content:space-between;margin-top:12px;font-family:var(--disp);font-size:19px}
+@media(max-width:760px){.wnav nav{display:none}.whero{flex-direction:column;padding:0 24px}.wtxt{width:100%}.wimg{position:relative;width:100%;height:280px;top:0;order:-1}.wcards .wc:nth-child(n+3){display:none}.wcats{gap:18px;overflow-x:auto}}
+
+/* ===== v2 unique boxless menus ===== */
+.view .sech{display:none}
+.fd,.vf,.m4 .gh,.m3 .gh,.m9 .gh,.lp .bg,.mh i{will-change:auto}
+.fd{-webkit-mask-image:linear-gradient(to right,transparent,#000 14%,#000 86%,transparent),linear-gradient(transparent,#000 14%,#000 86%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 14%,#000 86%,transparent),linear-gradient(transparent,#000 14%,#000 86%,transparent);mask-composite:intersect}
+.vf{-webkit-mask-image:linear-gradient(transparent,#000 16%,#000 62%,transparent);mask-image:linear-gradient(transparent,#000 16%,#000 62%,transparent)}
+.conc{margin:34px 0 10px}
+.conc .cbar{display:flex;align-items:center;gap:12px;width:100%;padding:16px 2px;text-align:left;border-bottom:1px solid var(--line);color:var(--mute);font-size:15px}
+.conc .cbar svg{width:18px;height:18px;color:var(--acc);flex:none}.conc .cbar span{flex:1}.conc .cbar i{display:grid;place-items:center}
+.conc .chips{margin-top:16px}
+.cnote{display:flex;gap:8px;align-items:center;margin-top:16px;font-size:13px;color:var(--mute)}.cnote svg{width:14px;height:14px;color:var(--acc);flex:none}
+.cats{margin:30px 0 8px}
+.mlist{display:flex;flex-direction:column;margin-top:10px}
+.mlist em{font-style:normal}
+.t-veralight .conc .chip{background:none;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}.t-veralight .conc .chip.on{box-shadow:none}
+.t-verasand .conc .cbar{background:#4a3e2b;color:#f6e8da;border-radius:999px;padding:17px 22px;border:0}.t-verasand .conc .cbar svg{color:#e9c9a0}
+.t-veradark .conc .cbar{border-bottom-color:rgba(201,168,103,.5)}.t-veradark .conc .chip{background:none;box-shadow:inset 0 0 0 1px rgba(201,168,103,.35)}.t-veradark .conc .chip.on{box-shadow:none}
+.t-veramed .conc .cbar{border:0;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.7);padding:17px 22px;color:#fff}.t-veramed .conc .cbar svg{color:#fff}
+.t-noir .conc .cbar,.t-lumina .conc .cbar{border:0;border-radius:999px;background:rgba(255,255,255,.08);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);padding:17px 22px}
+.t-nova .conc .cbar{border:0;border-radius:999px;box-shadow:inset 0 0 0 1px var(--acc);padding:17px 22px}
+.t-kinara .conc .chips{flex-wrap:wrap;justify-content:center;gap:10px 18px;overflow:visible}.t-kinara .conc .chip{background:none;padding:6px 2px;border-radius:0;font-style:italic;font-family:var(--disp);font-size:17px}.t-kinara .conc .chip.on{background:none;color:var(--acc);box-shadow:0 2px 0 var(--acc)}.t-kinara .cnote{justify-content:center}
+.t-maison .conc .chip{background:none;box-shadow:inset 0 0 0 1px var(--line)}.t-maison .conc .chip.on{box-shadow:none}
+.t-velora .conc{margin-top:26px}
+/* 1 veralight gallery */
+.m1{display:flex;flex-direction:column;align-items:center;text-align:center;padding:22px 0 34px;cursor:pointer}
+.m1 img{width:100%;display:block}
+.m1 b{font-size:23px;font-weight:500;letter-spacing:-.01em;margin-top:2px}
+.m1 span{color:var(--mute);font-size:13.5px;margin-top:8px}.m1 em{margin-top:12px;font-size:15px}
+.m1+.m1{border-top:1px solid rgba(0,0,0,.06)}
+/* 2 sand editorial bands */
+.m2{position:relative;margin:0 -20px 3px;height:270px;cursor:pointer;overflow:hidden}
+.m2 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.m2::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 36%,rgba(34,20,8,.82))}
+.m2 .t{position:absolute;left:26px;right:26px;bottom:24px;z-index:2;color:#fff7ec}
+.m2 small{display:block;font-size:11px;letter-spacing:.3em;opacity:.8;margin-bottom:8px}
+.m2 b{display:block;font-family:var(--disp);font-weight:500;font-size:32px;line-height:1.05}
+.m2 span{display:block;font-style:italic;font-size:14px;opacity:.88;margin-top:6px}
+.m2 em{position:absolute;right:0;bottom:2px;font-size:17px}
+/* 3 dark numbered carte */
+.m3{position:relative;padding:36px 0;border-top:1px solid var(--line);cursor:pointer;min-height:150px}
+.m3 .gh{position:absolute;right:-20px;top:0;bottom:0;width:64%;background-size:cover;background-position:center;opacity:.75;-webkit-mask-image:linear-gradient(to right,transparent,#000 72%),linear-gradient(transparent,#000 22%,#000 78%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 72%),linear-gradient(transparent,#000 22%,#000 78%,transparent);mask-composite:intersect}
+.m3 .t{position:relative;z-index:2;max-width:60%}
+.m3 small{display:block;font-size:11px;letter-spacing:.3em;color:var(--acc);margin-bottom:10px}
+.m3 b{display:block;font-family:var(--disp);font-weight:500;font-size:27px;line-height:1.08}
+.m3 span{display:block;font-style:italic;color:var(--mute);font-size:13.5px;margin-top:8px}.m3 em{display:block;color:var(--acc);margin-top:12px;font-size:16px}
+/* 4 coast staggered bleeds */
+.m4{position:relative;height:210px;margin:0 -20px;cursor:pointer}
+.m4 .gh{position:absolute;top:6px;bottom:6px;left:0;width:68%;background-size:cover;background-position:center;-webkit-mask-image:linear-gradient(to right,#000 55%,transparent),linear-gradient(transparent,#000 18%,#000 82%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,#000 55%,transparent),linear-gradient(transparent,#000 18%,#000 82%,transparent);mask-composite:intersect}
+.m4.r .gh{left:auto;right:0;-webkit-mask-image:linear-gradient(to left,#000 55%,transparent),linear-gradient(transparent,#000 18%,#000 82%,transparent);mask-image:linear-gradient(to left,#000 55%,transparent),linear-gradient(transparent,#000 18%,#000 82%,transparent)}
+.m4 .t{position:absolute;top:50%;transform:translateY(-50%);right:24px;width:40%;text-align:right}.m4.r .t{right:auto;left:24px;text-align:left}
+.m4 b{display:block;font-family:var(--disp);font-weight:600;font-size:25px;line-height:1.08}
+.m4 span{display:block;font-size:13px;opacity:.9;margin-top:8px;line-height:1.35}.m4 em{display:block;margin-top:10px;font-size:16px;font-weight:600}
+/* 5 noir feature stories */
+.m5{margin:0 -20px;text-align:center;cursor:pointer;padding-bottom:30px}
+.m5 img{display:block;width:100%;height:290px;object-fit:cover}
+.m5 .t{margin-top:-54px;position:relative;padding:0 24px}
+.m5 b{display:block;font-family:var(--disp);font-style:italic;font-weight:500;font-size:31px}
+.m5 span{display:block;font-style:italic;color:var(--mute);font-size:14px;margin-top:6px}
+.m5 .row2{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:16px}.m5 em{font-size:17px}
+.lnk{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--acc);padding:6px 0;border-bottom:1px solid var(--acc)}.lnk svg{width:15px;height:15px}
+/* 6 nova swipe gallery */
+.nv{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px;scrollbar-width:none}.nv::-webkit-scrollbar{display:none}
+.nv .sl{flex:0 0 100%;scroll-snap-align:center;position:relative;height:440px;cursor:pointer}
+.nv .sl img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.nv .t{position:absolute;left:26px;right:90px;bottom:30px}
+.nv b{display:block;font-family:var(--disp);font-style:italic;font-weight:500;font-size:33px;line-height:1.05}
+.nv span{display:block;color:var(--mute);font-size:14px;margin-top:8px}.nv em{display:block;color:var(--acc);margin-top:10px;font-size:17px}
+.nv .rcir{position:absolute;right:24px;bottom:34px}
+.dots2{display:flex;gap:8px;justify-content:center;margin:18px 0 6px}.dots2 i{width:6px;height:6px;border-radius:3px;background:var(--line);transition:all .25s}.dots2 i.on{width:22px;background:var(--acc)}
+/* 7 kinara floating orbs */
+.m7{display:flex;align-items:center;margin:0 -20px;cursor:pointer;padding:8px 0}
+.m7 .orbi{flex:none;width:224px;height:224px;margin:0 -34px 0 -24px;background-size:cover;background-position:center;-webkit-mask-image:radial-gradient(circle,#000 36%,transparent 68%);mask-image:radial-gradient(circle,#000 36%,transparent 68%)}
+.m7:nth-child(even){flex-direction:row-reverse;text-align:right}.m7:nth-child(even) .orbi{margin:0 -24px 0 -34px}
+.m7 .t{flex:1;padding:0 26px;position:relative;z-index:2}
+.m7 b{display:block;font-family:var(--disp);font-style:italic;font-weight:500;font-size:25px;line-height:1.1}
+.m7 span{display:block;color:var(--mute);font-size:13px;margin-top:8px}.m7 em{display:block;color:var(--acc);margin-top:10px;font-size:16px}
+/* 8 lumina full-height pages */
+.t-lumina #v-menu{scroll-snap-type:y proximity}
+.lp{position:relative;margin:0 -20px;height:540px;scroll-snap-align:start;cursor:pointer}
+.lp .bg{position:absolute;inset:0;background-size:cover;background-position:center;-webkit-mask-image:linear-gradient(transparent,#000 14%,#000 66%,transparent);mask-image:linear-gradient(transparent,#000 14%,#000 66%,transparent)}
+.lp .t{position:absolute;left:26px;right:96px;bottom:36px}
+.lp b{display:block;font-family:var(--disp);font-style:italic;font-weight:500;font-size:36px;line-height:1.04}
+.lp span{display:block;color:var(--mute);font-size:14px;margin-top:8px}.lp em{display:block;margin-top:10px;font-size:18px}
+.lp .rcir{position:absolute;right:24px;bottom:40px}
+/* 9 velora AI picks */
+.m9{position:relative;padding:34px 0;min-height:168px;border-top:1px solid var(--line);cursor:pointer}
+.m9 .gh{position:absolute;right:-20px;top:0;bottom:0;width:52%;background-size:cover;background-position:center;-webkit-mask-image:linear-gradient(to right,transparent,#000 60%),linear-gradient(transparent,#000 18%,#000 82%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 60%),linear-gradient(transparent,#000 18%,#000 82%,transparent);mask-composite:intersect}
+.m9 .t{position:relative;z-index:2;max-width:58%}
+.m9 .ai{display:inline-flex;align-items:center;gap:5px;color:var(--acc);font-size:11.5px;font-weight:600;text-decoration:none;margin-bottom:8px}.m9 .ai svg{width:12px;height:12px}
+.m9 b{display:block;font-family:var(--disp);font-weight:600;font-size:21px;line-height:1.12}
+.m9 .why{display:block;color:var(--mute);font-size:13px;margin-top:8px}.m9 em{display:block;margin-top:12px;font-size:16px;font-weight:600}
+/* 10 maison carte */
+.mh{position:relative;height:210px;margin:34px -20px 8px}
+.mh i{position:absolute;inset:0;background-size:cover;background-position:center;-webkit-mask-image:linear-gradient(#000 40%,transparent);mask-image:linear-gradient(#000 40%,transparent)}
+.mh h3{position:absolute;left:20px;bottom:-4px;font-style:italic;font-weight:500;font-size:36px}
+.mi{padding:20px 0;cursor:pointer}
+.mi .r1{display:flex;align-items:baseline;gap:10px}.mi .r1 b{font-size:23px;font-weight:500}
+.mi .r1 u{flex:1;border-bottom:1px dotted var(--mute);transform:translateY(-5px);text-decoration:none}.mi .r1 em{font-size:16px}
+.mi span{display:block;font-style:italic;color:var(--mute);font-size:14px;margin-top:6px}
+.mi small{display:block;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);margin-top:8px;opacity:.8}
+/* shared footer */
+.qrrow{background:none!important;box-shadow:none!important;padding:8px 0!important;margin-top:48px!important}
+.empty{padding:40px 0;text-align:center;color:var(--mute)}
+
+/* velora steel hero (matches mockup) */
+.t-velora .hdr,.t-velora .hdr.solid{background:#1b2430;color:#f4f7fb}.t-velora .hdr .logo span{color:rgba(230,236,245,.7)}
+.velhero{position:relative;margin:-6px -20px 0;padding:8px 20px 34px;background:linear-gradient(180deg,#1b2430 0%,#253140 44%,#4f5c72 74%,rgba(223,227,234,0) 100%);overflow:hidden}
+.velhero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(55% 34% at 12% 78%,rgba(60,150,255,.38),transparent 72%),radial-gradient(40% 30% at 90% 30%,rgba(120,180,255,.18),transparent 70%),linear-gradient(158deg,transparent 50%,rgba(130,195,255,.55) 52%,transparent 55%),linear-gradient(163deg,transparent 58%,rgba(70,155,255,.35) 59.5%,transparent 62%)}
+.velhero>*{position:relative}
+.velhero h1{color:#fff}.velhero .vel p{color:rgba(228,235,245,.82)}
+.velhero .askbar{background:rgba(18,28,42,.5);color:#fff;box-shadow:inset 0 0 0 1.5px rgba(95,170,255,.95),0 0 26px rgba(45,140,255,.5)}.velhero .askbar span{color:rgba(228,235,245,.88)}
+.t-velora .vtiles{margin-top:6px}
+
+/* ===== platform embed ===== */
+body.nochrome .top{display:none}
+body.nochrome .app{height:100svh;max-width:none;width:100%;margin:0;border-radius:0;box-shadow:none;min-height:0}
+body.nochrome{background:transparent}
+@media(min-width:760px){body.nochrome{background:#14110e;justify-content:center;min-height:100svh}body.nochrome .app{max-width:430px;height:min(920px,calc(100svh - 48px));margin:24px auto;border-radius:40px;box-shadow:0 40px 100px rgba(0,0,0,.45)}body.nochrome.webmode{background:transparent}}
+.vimg video{width:100%;height:100%;object-fit:cover;display:block}
+.vid.on .vimg.real{animation:none;transform:none}
+model-viewer.stage3{width:100%;height:100%;display:block;--poster-color:transparent;background:transparent}
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="note">Your 10 templates · sample photos, sample menu</div>
+  <div class="modes" id="modes"><button class="on" data-act="mode" data-v="phone">Phone</button><button data-act="mode" data-v="web">Website</button></div>
+  <div class="tpls" id="skins"></div>
+</div>
+
+<div id="web"></div>
+<div class="app t-veralight" id="app">
+  <div class="hdr" id="hdr"></div>
+  <div class="view on" id="v-menu"></div>
+  <div class="view" id="v-dish"></div>
+  <div class="view" id="v-ask">
+    <div class="askh"><h1 class="disp" id="askT"></h1><p id="askS"></p></div>
+    <div class="langs chips" id="langs"><button class="chip on" data-act="setlang" data-v="en">English</button><button class="chip" data-act="setlang" data-v="fr">Français</button><button class="chip" data-act="setlang" data-v="es">Español</button></div>
+    <div class="chat" id="chat"></div>
+    <div class="sugg" id="sugg"></div>
+    <form class="askform" id="askform"><button type="button" class="mic" data-act="mic" id="micb" aria-label="Voice"></button><input id="askin" autocomplete="off"><button type="submit" aria-label="Send" id="sendb"></button></form>
+    <p class="fine" id="fine"></p>
+  </div>
+  <div class="view" id="v-saved"></div>
+  <div class="tabs" id="tabs"></div>
+
+  <div class="scrim" id="scrim" data-act="close"></div>
+  <div class="sheet" id="sheet"></div>
+  <div class="toast" id="toast"></div>
+
+  <div class="vid" id="vid"><div class="vimg" id="vimg"></div><div class="vshade"></div><button class="gl vx" data-act="closevid" aria-label="Close">×</button><div class="vbot"><b class="disp" id="vidt"></b><span id="vidcap"></span><div class="vtrack"><i id="vidbar"></i></div></div></div>
+  <div class="ar" id="ar">
+    <img src="assets/table.jpg" alt="Restaurant table">
+    <div class="artag" id="artag">Sample AR preview · real AR uses your capture</div>
+    <div class="arhost" id="arhost"></div>
+    <div class="arscan" id="arscan"></div>
+    <div class="arbottom" id="arbottom" style="opacity:0"><p id="arp"></p><button id="ardone" data-act="ardone"></button></div>
+  </div>
+</div>
+
+<script src="three.min.js"></script>
+<script>
+(function(){
+var $=function(id){return document.getElementById(id)};
+var I={
+ menu:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h18M5 17a7 7 0 0114 0M12 8V6M10.5 6h3"/></svg>',
+ ar:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>',
+ ask:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z"/><path d="M19 16v4M17 18h4" stroke-linecap="round"/></svg>',
+ heart:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg>',
+ heartF:'<svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg>',
+ bag:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>',
+ back:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>',
+ next:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>',
+ mic:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg>',
+ up:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>',
+ play:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5l11 6.5-11 6.5z"/></svg>',
+ flame:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3c1 4 5 5 5 10a5 5 0 01-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-5 1-9z"/></svg>',
+ dumb:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 10v4M6 7.5v9M18 7.5v9M21 10v4M6 12h12"/></svg>',
+ chili:'<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M16.5 3.5c1.2.4 1.7 1.7 1 3 .6 7.5-5.8 13.5-13.5 13.5 3.2-2.2 5.2-4.800 5-9 0-2.200 1.600-3.800 3.700-4.100 1-.2 2-.7 2.600-2.600z"/></svg>',
+ al_fish:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"><path d="M3 12c3-5 9-6 14-3l4-2v10l-4-2c-5 3-11 2-14-3zM16 11h.01"/></svg>',
+ al_shell:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.500L4 11c0-4.500 4-7 8-7s8 2.500 8 7l-8 9.500zM12 20.500V5M8 18.500L9 5.500M16 18.500L15 5.500"/></svg>',
+ al_milk:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M9 3h6l1 4v14H8V7l1-4zM8 11h8"/></svg>',
+ al_wheat:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V9M12 9c-2.500-.500-3.500-2.500-3.500-5 2.500.500 3.500 2.500 3.500 5zM12 9c2.500-.500 3.500-2.500 3.500-5-2.500.500-3.500 2.500-3.500 5zM12 15c-2.500-.500-3.500-2.500-3.500-5M12 15c2.500-.500 3.500-2.500 3.500-5"/></svg>',
+ al_egg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3c3.500 0 6 6 6 10a6 6 0 01-12 0c0-4 2.500-10 6-10z"/></svg>',
+ sliders:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 8h9M17 8h3M4 16h3M11 16h9"/><circle cx="15" cy="8" r="2"/><circle cx="9" cy="16" r="2"/></svg>',
+ clock:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>',
+ bars:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M7 19v-6M12 19V6M17 19v-9"/></svg>',
+ shield:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></svg>',
+ burger:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>',
+ search:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.500 4.500"/></svg>',
+ scan:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 9V5h4M16 5h4v4M20 15v4h-4M8 19H4v-4"/><circle cx="12" cy="12" r="3"/></svg>',
+ home:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M4 11l8-7 8 7v9H4z"/></svg>',
+ user:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg>',
+ plus:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>',
+ arrow:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+ dome:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 17h18M5 17a7 7 0 0114 0M12 8V6M10.500 6h3"/></svg>',
+ leaf:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M5 19c0-8 5-14 15-14 0 10-6 15-14 15M5 19l8-8"/></svg>',
+ cal:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>',
+ spark:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg>',
+ wave:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 12v0M8 8v8M12 5v14M16 8v8M20 12v0"/></svg>',
+ chefh:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M7 14a4 4 0 11.8-7.9A4 4 0 0116 6a4 4 0 011 8v5H7v-5z"/></svg>',
+ wine:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l-.5 6a3.5 3.5 0 01-7 0L8 3zM12 12.5V20M8.5 20h7"/></svg>'
+};
+
+var T={
+ en:{menu:'Menu',home:'Home',pairings:'Pairings',nutrition:'Nutrition',prefs:'Preferences',concierge:'AI Concierge',mydining:'My Dining',experience:'Experience',occasions:'Occasions',you:'You',favs:'Favorites',viewall:'View all',events:'Events',private:'Private Dining',arview:'AR View',story:'Our Story',viewar:'View in AR',viewarS:'See dishes at your table in real size.',chefsel:'Chef’s selection',orderNow:'Order now',web:'Website',phone:'Phone',order:'Order',lang:'Language',playT:'Play',aiDish:'Ask AI',arT:'AR',arNote:'AR for this dish arrives with your capture. Try the fondant.',vidCap:'Sample motion preview · your dish video plays here',glance:'At a glance',kcalU:'kcal',protU:'g protein',aiPick:'AI pick',minU:'min',foryou:'For you',hp:'High protein',lc:'Low carb',recd:'Recommended for you',prep:'Prep',nutr:'Nutrition',protein:'protein',best:'Best pairing',cust:'Customize',spice:'Spice level',mild:'Mild',hot:'Hot',sampv:'Sample values. The kitchen enters and confirms nutrition and allergens.',aiT:'AI Assistant',aiS:'Ask for recommendations, dietary tips, customizations, or anything about the menu.',qrT:'Scan to open the full AI menu',qrS:'Recommendations, nutrition details and more on your phone.',hpq:'High protein',spiceL:['None','Mild','Medium','Hot'],min:'min',ar:'AR',ask:'Ask',saved:'Saved',explore:'Explore the menu',all:'All',starters:'Starters',mains:'Mains',desserts:'Desserts',veg:'Vegetarian',nogl:'No gluten',noegg:'No eggs',none:'Nothing matches. Ask the concierge for options.',add:'Add to order',reserve:'Reserve',ingr:'Ingredients',alle:'Allergens',conf:'Confirmed by the kitchen',pair:'Pairing',onTable:'View on your table',soon:'3D coming soon',chef:'Chef’s note',savedT:'Saved.',savedEmpty:'Tap the heart on any dish to save it.',cart:'Your order',total:'Total',place:'Place order',demo:'Demo only. Nothing is sent.',back:'Menu',party:'Party size',time:'Time',request:'Request table',askT:'Ask the menu.',askS:'Any language. Allergens confirmed.',voice:'Voice arrives in the full version.',ph:'Ask anything',scripted:'Replies are scripted for this demo.',empty:'Your order is empty.',scan:'Move your phone slowly',drag:'Drag to turn it.',done:'Done',tag3:'Sample 3D model · drag to turn',artag:'Sample AR preview · real AR uses your capture',added:'Added to your order',reserveT:'Reserve a table',hi:'Hi! What are you in the mood for?',wine:'Wine',sig:'Signature dishes',crave:'What are you craving today?',tell:'Tell us what you’re craving',g1:['Build a Tasting Menu','A personalized culinary journey'],g2:['Perfect Pairings','Wine, cocktails and more'],g3:['Occasion Mode','Anniversary, business or celebration'],g4:['Chef’s Story','Our philosophy and ingredients'],badge:'360° AR',samp:'Sample photos'},
+ fr:{menu:'Menu',home:'Accueil',pairings:'Accords',nutrition:'Nutrition',prefs:'Préférences',concierge:'Concierge IA',mydining:'Mes repas',experience:'Expérience',occasions:'Occasions',you:'Moi',favs:'Favoris',viewall:'Tout voir',events:'Événements',private:'Salon privé',arview:'Vue RA',story:'Notre histoire',viewar:'Voir en RA',viewarS:'Voyez les plats sur votre table, en taille réelle.',chefsel:'Sélection du chef',orderNow:'Commander',web:'Site web',phone:'Téléphone',order:'Commande',lang:'Langue',playT:'Lecture',aiDish:'Demander à l’IA',arT:'RA',arNote:'La RA de ce plat arrive avec votre capture. Essayez le fondant.',vidCap:'Aperçu animé exemple · la vidéo de votre plat se lance ici',glance:'En un coup d’œil',kcalU:'kcal',protU:'g de protéines',aiPick:'Choix IA',minU:'min',foryou:'Pour vous',hp:'Riche en protéines',lc:'Faible en glucides',recd:'Recommandé pour vous',prep:'Prépa',nutr:'Nutrition',protein:'protéines',best:'Meilleur accord',cust:'Personnaliser',spice:'Niveau d’épices',mild:'Doux',hot:'Fort',sampv:'Valeurs d’exemple. La cuisine saisit et confirme la nutrition et les allergènes.',aiT:'Assistant IA',aiS:'Demandez des recommandations, des conseils alimentaires, des personnalisations, ou tout sur le menu.',qrT:'Scannez pour ouvrir le menu IA complet',qrS:'Recommandations, détails nutritionnels et plus sur votre téléphone.',hpq:'Riche en protéines',spiceL:['Aucun','Doux','Moyen','Fort'],min:'min',ar:'RA',ask:'Demander',saved:'Favoris',explore:'Voir le menu',all:'Tout',starters:'Entrées',mains:'Plats',desserts:'Desserts',veg:'Végétarien',nogl:'Sans gluten',noegg:'Sans œufs',none:'Aucun résultat. Demandez au concierge.',add:'Ajouter à la commande',reserve:'Réserver',ingr:'Ingrédients',alle:'Allergènes',conf:'Confirmé par la cuisine',pair:'Accord',onTable:'Voir sur votre table',soon:'3D bientôt',chef:'Mot du chef',savedT:'Favoris.',savedEmpty:'Touchez le cœur d’un plat pour l’enregistrer.',cart:'Votre commande',total:'Total',place:'Commander',demo:'Démo uniquement. Rien n’est envoyé.',back:'Menu',party:'Convives',time:'Heure',request:'Demander la table',askT:'Demandez au menu.',askS:'Toutes les langues. Allergènes confirmés.',voice:'La voix arrive dans la version complète.',ph:'Posez une question',scripted:'Réponses scénarisées pour cette démo.',empty:'Votre commande est vide.',scan:'Bougez lentement votre téléphone',drag:'Faites-le tourner.',done:'Terminé',tag3:'Modèle 3D exemple · faites glisser',artag:'Aperçu RA exemple · la vraie RA utilise votre capture',added:'Ajouté à la commande',reserveT:'Réserver une table',hi:'Bonjour ! Qu’est-ce qui vous ferait plaisir ?',wine:'Vin',sig:'Plats signature',crave:'Qu’avez-vous envie de manger ?',tell:'Dites-nous ce qui vous fait envie',g1:['Composer un menu dégustation','Un parcours culinaire sur mesure'],g2:['Accords parfaits','Vins, cocktails et plus'],g3:['Mode occasion','Anniversaire, affaires ou fête'],g4:['L’histoire du chef','Notre philosophie et nos produits'],badge:'360° RA',samp:'Photos exemples'},
+ es:{menu:'Menú',home:'Inicio',pairings:'Maridajes',nutrition:'Nutrición',prefs:'Preferencias',concierge:'Conserje IA',mydining:'Mis comidas',experience:'Experiencia',occasions:'Ocasiones',you:'Tú',favs:'Favoritos',viewall:'Ver todo',events:'Eventos',private:'Salón privado',arview:'Vista RA',story:'Nuestra historia',viewar:'Ver en RA',viewarS:'Vea los platos en su mesa, a tamaño real.',chefsel:'Selección del chef',orderNow:'Pedir ahora',web:'Sitio web',phone:'Teléfono',order:'Pedido',lang:'Idioma',playT:'Reproducir',aiDish:'Preguntar a la IA',arT:'RA',arNote:'La RA de este plato llega con su captura. Pruebe el fondant.',vidCap:'Vista animada de muestra · aquí se reproduce el video de su plato',glance:'De un vistazo',kcalU:'kcal',protU:'g de proteína',aiPick:'Elección IA',minU:'min',foryou:'Para usted',hp:'Alto en proteína',lc:'Bajo en carbohidratos',recd:'Recomendado para usted',prep:'Prep.',nutr:'Nutrición',protein:'proteína',best:'Mejor maridaje',cust:'Personalizar',spice:'Nivel de picante',mild:'Suave',hot:'Fuerte',sampv:'Valores de muestra. La cocina ingresa y confirma la nutrición y los alérgenos.',aiT:'Asistente IA',aiS:'Pida recomendaciones, consejos dietéticos, personalizaciones o lo que quiera sobre el menú.',qrT:'Escanee para abrir el menú IA completo',qrS:'Recomendaciones, detalles nutricionales y más en su teléfono.',hpq:'Alto en proteína',spiceL:['Nada','Suave','Medio','Fuerte'],min:'min',ar:'RA',ask:'Preguntar',saved:'Guardados',explore:'Ver el menú',all:'Todo',starters:'Entradas',mains:'Principales',desserts:'Postres',veg:'Vegetariano',nogl:'Sin gluten',noegg:'Sin huevo',none:'Sin resultados. Pregunte al conserje.',add:'Añadir al pedido',reserve:'Reservar',ingr:'Ingredientes',alle:'Alérgenos',conf:'Confirmado por la cocina',pair:'Maridaje',onTable:'Ver en su mesa',soon:'3D próximamente',chef:'Nota del chef',savedT:'Guardados.',savedEmpty:'Toque el corazón de un plato para guardarlo.',cart:'Su pedido',total:'Total',place:'Hacer pedido',demo:'Solo demostración. No se envía nada.',back:'Menú',party:'Personas',time:'Hora',request:'Solicitar mesa',askT:'Pregunte al menú.',askS:'Cualquier idioma. Alérgenos confirmados.',voice:'La voz llega en la versión completa.',ph:'Pregunte lo que quiera',scripted:'Respuestas guionadas para esta demo.',empty:'Su pedido está vacío.',scan:'Mueva el teléfono despacio',drag:'Arrastre para girarlo.',done:'Listo',tag3:'Modelo 3D de muestra · arrastre',artag:'Vista RA de muestra · la RA real usa su captura',added:'Añadido al pedido',reserveT:'Reservar una mesa',hi:'¡Hola! ¿Qué se le antoja?',wine:'Vino',sig:'Platos de la casa',crave:'¿Qué se le antoja hoy?',tell:'Díganos qué se le antoja',g1:['Armar un menú degustación','Un viaje culinario a su medida'],g2:['Maridajes perfectos','Vinos, cócteles y más'],g3:['Modo ocasión','Aniversario, negocios o celebración'],g4:['La historia del chef','Nuestra filosofía e ingredientes'],badge:'360° RA',samp:'Fotos de muestra'}
+};
+
+/* templates: name, hero photo, dark?, home layout, copy [eyebrow, headline, sub] per language */
+var TP=[
+ {k:'veralight',hl:'burger',hr:'search',tabs:0,nav:['Menu','Our Story','Events','Contact'],navR:'conc',label:'Véra Light',n:'VÉRA',s:'RESTAURANT',img:'assets/h_veralight.jpg',dk:0,home:'tiles',
+  en:['Seasonal menu','Modern Cuisine','Refined flavors, seasonal ingredients.'],fr:['Menu de saison','Cuisine moderne','Saveurs raffinées, produits de saison.'],es:['Menú de temporada','Cocina moderna','Sabores refinados, ingredientes de temporada.']},
+ {k:'verasand',hl:'burger',hr:'search',tabs:0,nav:['Menu','Experience','Events','Gallery'],navR:'concdark',label:'Véra Sand',n:'VÉRA',s:'RESTAURANT',img:'assets/h_verasand.jpg',dk:0,home:'tiles',
+  en:['A modern dining experience','Seasonal Cuisine','Thoughtful dishes, locally sourced.'],fr:['Une table contemporaine','Cuisine de saison','Des plats réfléchis, produits localement.'],es:['Una mesa contemporánea','Cocina de temporada','Platos cuidados, de origen local.']},
+ {k:'veradark',hl:'burger',hr:'search',tabs:0,nav:['Menu','Our Story','Events','Contact'],navR:'conc',label:'Véra Dark',n:'VÉRA',s:'RESTAURANT',img:'assets/h_veradark.jpg',dk:1,home:'tiles',
+  en:['Contemporary cuisine','A Refined Dining Experience','Seasonal ingredients, artfully prepared.'],fr:['Cuisine contemporaine','Une expérience raffinée','Produits de saison, préparés avec art.'],es:['Cocina contemporánea','Una experiencia refinada','Ingredientes de temporada, preparados con arte.']},
+ {k:'veramed',hl:'burger',hr:'search',tabs:0,nav:['Menu','Experience','Events','Gallery'],navR:'conc',label:'Véra Coast',n:'VÉRA',s:'RESTAURANT',img:'assets/h_veramed.jpg',dk:0,home:'tiles',
+  en:['Mediterranean inspired','Fresh Seasonal Cuisine','A modern take on timeless flavors.'],fr:['Inspiration méditerranéenne','Cuisine fraîche de saison','Une vision moderne de saveurs intemporelles.'],es:['Inspiración mediterránea','Cocina fresca de temporada','Una versión moderna de sabores atemporales.']},
+ {k:'noir',hl:'burger',hr:'bag',tabs:0,nav:['Menu','Order','Experience','Chef','Concierge'],navR:'bag',label:'Noir',n:'NOIR',s:'RESTAURANT',img:'assets/h_noir.jpg',dk:1,home:'tiles',
+  en:['Signature menu','Modern Cuisine Rooted in Nature','Seasonal ingredients, refined techniques.'],fr:['Menu signature','Cuisine moderne, ancrée dans la nature','Produits de saison, techniques raffinées.'],es:['Menú de autor','Cocina moderna con raíces en la naturaleza','Ingredientes de temporada, técnicas refinadas.']},
+ {k:'nova',hl:'burger',hr:'bag',tabs:0,nav:['Menu','Wine','Experience','Chef','Concierge'],navR:'bag',label:'Nova',n:'NOVA',s:'RESTAURANT',img:'assets/h_nova.jpg',dk:1,home:'tiles',
+  en:['Modern cuisine','A Culinary Journey','Seasonal creations, crafted with purpose.'],fr:['Cuisine moderne','Un voyage culinaire','Créations de saison, pensées avec intention.'],es:['Cocina moderna','Un viaje culinario','Creaciones de temporada, hechas con propósito.']},
+ {k:'kinara',hl:'burger',hr:'scan',tabs:['menu','ar','experience'],nav:['Menu','AI Sommelier','AR Experience','Chef’s Story'],navR:'conc',label:'Kinara',n:'KINARA',s:'RESTAURANT',img:'assets/h_kinara.jpg',dk:1,home:'orb',
+  en:['AI sommelier','A Dining Experience Personalized by AI','Your table, tuned to your taste.'],fr:['Sommelier IA','Une expérience personnalisée par l’IA','Votre table, ajustée à votre goût.'],es:['Sommelier con IA','Una experiencia personalizada con IA','Su mesa, ajustada a su gusto.']},
+ {k:'lumina',hl:'burger',hr:'search',tabs:['home','menu','ar','favs'],nav:['Menu','Experiences','Chef’s Table','About'],navR:'conc',label:'Lùmina',n:'LÙMINA',s:'RESTAURANT',img:'assets/h_lumina.jpg',dk:1,home:'tiles',badge:1,
+  en:['Signature dishes','See every plate in 360°','Turn each dish before you order.'],fr:['Plats signature','Chaque assiette en 360°','Faites tourner chaque plat avant de commander.'],es:['Platos de la casa','Cada plato en 360°','Gire cada plato antes de pedir.']},
+ {k:'velora',hl:'burger',hr:'search',tabs:['home','menu','concierge','mydining'],nav:['Menu','Experiences','Pairings','Nutrition','AI Concierge'],navR:'lang',label:'Vélora',n:'VÉLORA',s:'RESTAURANT',img:'assets/h_velora.jpg',dk:0,home:'ask',
+  en:['AI dining concierge','AI Dining Concierge','Personalized recommendations for a dining experience crafted around you.'],fr:['Concierge gastronomique IA','Concierge gastronomique IA','Des recommandations personnalisées pour une expérience taillée pour vous.'],es:['Conserje gastronómico con IA','Conserje gastronómico con IA','Recomendaciones personalizadas para una experiencia hecha a su medida.']},
+ {k:'maison',hl:'',hr:'burger',tabs:['home','menu','ask','occasions','you'],nav:['Menu','Experience','Chef’s Story','Private Dining'],navR:'ai',label:'Maison Vertè',n:'VERTÈ',pre:'MAISON',s:'',img:'assets/h_maison.jpg',dk:0,home:'guide',
+  en:['AI dining concierge','Your Personal Dining Guide','Recommendations, pairings and curated menus, tailored to you.'],fr:['Concierge gastronomique IA','Votre guide gastronomique personnel','Recommandations, accords et menus sur mesure, pour vous.'],es:['Conserje gastronómico con IA','Su guía gastronómica personal','Recomendaciones, maridajes y menús a medida, para usted.']}
+];
+
+var D=[
+ {id:0,imgL:'assets/h_veralight.jpg',cat:'starters',ac:['shell','milk'],rec:1,hp:1,lc:1,prep:15,kcal:380,prot:28,spice:0,veg:0,gl:0,egg:0,price:28,img:'assets/d_scallops.jpg',has3d:0,
+  en:{n:'Seared Scallops',s:'Cauliflower, citrus, micro herbs',d:'Caramelized scallops, cauliflower purée, citrus beurre blanc, micro herbs.',i:['Scallops','Cauliflower','Citrus','Micro herbs'],a:['Shellfish','Dairy'],c:'Seared hard in brown butter and plated warm.',p:'Chablis · $16 a glass'},
+  fr:{n:'Noix de Saint-Jacques',s:'Chou-fleur, agrumes, jeunes pousses',d:'Saint-Jacques caramélisées, purée de chou-fleur, beurre blanc aux agrumes, jeunes pousses.',i:['Saint-Jacques','Chou-fleur','Agrumes','Jeunes pousses'],a:['Crustacés et mollusques','Lait'],c:'Saisies au beurre noisette et servies chaudes.',p:'Chablis · 16 $ le verre'},
+  es:{n:'Vieiras selladas',s:'Coliflor, cítricos, microhierbas',d:'Vieiras caramelizadas, puré de coliflor, beurre blanc de cítricos, microhierbas.',i:['Vieiras','Coliflor','Cítricos','Microhierbas'],a:['Mariscos','Lácteos'],c:'Selladas en mantequilla dorada y servidas calientes.',p:'Chablis · $16 la copa'}},
+ {id:1,imgL:'assets/t_lamb.jpg',cat:'mains',ac:['wheat'],rec:1,hp:1,lc:0,prep:25,kcal:640,prot:46,spice:1,veg:0,gl:1,egg:0,price:42,img:'assets/d_lamb.jpg',has3d:0,
+  en:{n:'Herb-Crusted Lamb',s:'Herb crust, seasonal jus',d:'Rack of lamb, herb crust, spring vegetables, rosemary jus.',i:['Lamb','Herb crust','Spring vegetables','Rosemary'],a:['Gluten'],c:'Roasted to medium-rare and rested before carving.',p:'Syrah · $18 a glass'},
+  fr:{n:'Carré d’agneau en croûte d’herbes',s:'Croûte d’herbes, jus de saison',d:'Carré d’agneau, croûte d’herbes, légumes de printemps, jus au romarin.',i:['Agneau','Croûte d’herbes','Légumes de printemps','Romarin'],a:['Gluten'],c:'Rôti à point et laissé reposer avant la découpe.',p:'Syrah · 18 $ le verre'},
+  es:{n:'Cordero en costra de hierbas',s:'Costra de hierbas, jugo de temporada',d:'Rack de cordero, costra de hierbas, verduras de primavera, jugo de romero.',i:['Cordero','Costra de hierbas','Verduras de primavera','Romero'],a:['Gluten'],c:'Asado a punto y reposado antes de cortar.',p:'Syrah · $18 la copa'}},
+ {id:2,cat:'mains',ac:['shell','milk'],rec:0,hp:0,lc:0,prep:22,kcal:720,prot:34,spice:0,veg:0,gl:0,egg:0,price:48,img:'assets/d_risotto.jpg',has3d:0,
+  en:{n:'Maine Lobster Risotto',s:'Citrus beurre blanc, fennel',d:'Maine lobster, creamy risotto, citrus beurre blanc, fennel.',i:['Lobster','Arborio rice','Citrus','Fennel'],a:['Shellfish','Dairy'],c:'Stirred to order, finished with a little foam.',p:'Chardonnay · $17 a glass'},
+  fr:{n:'Risotto au homard du Maine',s:'Beurre blanc aux agrumes, fenouil',d:'Homard du Maine, risotto crémeux, beurre blanc aux agrumes, fenouil.',i:['Homard','Riz arborio','Agrumes','Fenouil'],a:['Crustacés et mollusques','Lait'],c:'Remué à la commande, terminé avec un peu d’écume.',p:'Chardonnay · 17 $ le verre'},
+  es:{n:'Risotto de langosta de Maine',s:'Beurre blanc de cítricos, hinojo',d:'Langosta de Maine, risotto cremoso, beurre blanc de cítricos, hinojo.',i:['Langosta','Arroz arborio','Cítricos','Hinojo'],a:['Mariscos','Lácteos'],c:'Se remueve al momento y se termina con un poco de espuma.',p:'Chardonnay · $17 la copa'}},
+ {id:3,cat:'desserts',ac:['wheat','egg','milk'],rec:0,hp:0,lc:0,prep:12,kcal:480,prot:6,spice:-1,veg:1,gl:1,egg:1,price:16,img:'assets/dessert.jpg',has3d:1,
+  en:{n:'Chocolate Fondant',s:'Raspberry, vanilla',d:'Warm chocolate fondant, molten center, raspberry, vanilla.',i:['Dark chocolate','Raspberry','Vanilla ice cream','Mint'],a:['Gluten','Eggs','Dairy'],c:'Baked to order. Allow twelve minutes.',p:'Vin Santo · $13 a glass'},
+  fr:{n:'Fondant au chocolat',s:'Framboise, vanille',d:'Fondant au chocolat chaud, cœur coulant, framboise, vanille.',i:['Chocolat noir','Framboise','Glace vanille','Menthe'],a:['Gluten','Œufs','Lait'],c:'Cuit à la commande. Comptez douze minutes.',p:'Vin Santo · 13 $ le verre'},
+  es:{n:'Fondant de chocolate',s:'Frambuesa, vainilla',d:'Fondant de chocolate caliente, centro fundido, frambuesa, vainilla.',i:['Chocolate negro','Frambuesa','Helado de vainilla','Menta'],a:['Gluten','Huevo','Lácteos'],c:'Se hornea al momento. Calcule doce minutos.',p:'Vin Santo · $13 la copa'}}
+,
+
+ {id:4,cat:'starters',rec:0,hp:1,lc:1,prep:10,kcal:320,prot:24,spice:-1,ac:['fish'],veg:0,gl:0,egg:0,price:24,img:'assets/t_salmon.jpg',has3d:0,
+  en:{n:'Cured Salmon',s:'Citrus, fennel, herbs',d:'House-cured salmon, citrus segments, shaved fennel, fresh herbs.',i:['Salmon','Citrus','Fennel','Herbs'],a:['Fish'],c:'Cured for two days and sliced to order.',p:'Sancerre · $15 a glass'},
+  fr:{n:'Saumon mariné',s:'Agrumes, fenouil, herbes',d:'Saumon mariné maison, suprêmes d’agrumes, fenouil émincé, herbes fraîches.',i:['Saumon','Agrumes','Fenouil','Herbes'],a:['Poisson'],c:'Mariné deux jours et tranché à la commande.',p:'Sancerre · 15 $ le verre'},
+  es:{n:'Salmón curado',s:'Cítricos, hinojo, hierbas',d:'Salmón curado de la casa, gajos de cítricos, hinojo laminado, hierbas frescas.',i:['Salmón','Cítricos','Hinojo','Hierbas'],a:['Pescado'],c:'Curado durante dos días y cortado al momento.',p:'Sancerre · $15 la copa'}},
+ {id:5,cat:'desserts',rec:0,hp:0,lc:0,prep:8,kcal:410,prot:5,spice:-1,ac:['wheat','egg','milk'],veg:1,gl:1,egg:1,price:14,img:'assets/t_tart.jpg',has3d:0,
+  en:{n:'Raspberry Tart',s:'Raspberry, vanilla cream',d:'Buttery tart shell, vanilla cream, fresh raspberries, gold leaf.',i:['Raspberry','Vanilla cream','Butter pastry','Gold leaf'],a:['Gluten','Eggs','Dairy'],c:'Assembled at the pass, just before it leaves.',p:'Moscato · $12 a glass'},
+  fr:{n:'Tarte aux framboises',s:'Framboise, crème vanille',d:'Pâte sablée, crème vanille, framboises fraîches, feuille d’or.',i:['Framboise','Crème vanille','Pâte sablée','Feuille d’or'],a:['Gluten','Œufs','Lait'],c:'Dressée au passe, juste avant de partir.',p:'Moscato · 12 $ le verre'},
+  es:{n:'Tarta de frambuesa',s:'Frambuesa, crema de vainilla',d:'Base de masa mantecosa, crema de vainilla, frambuesas frescas, pan de oro.',i:['Frambuesa','Crema de vainilla','Masa de mantequilla','Pan de oro'],a:['Gluten','Huevo','Lácteos'],c:'Se arma en el pase, justo antes de salir.',p:'Moscato · $12 la copa'}}
+];
+var FOND=3;
+
+var CH={
+ en:{chips:['Something light','Gluten-free','Best for two','Anniversary','Wine pairing'],
+  ans:[['Try the Seared Scallops: cauliflower purée and citrus beurre blanc, $28.',[0]],['The Seared Scallops and the Maine Lobster Risotto are gluten-free. Please tell your server about any allergy. The kitchen confirms every dish.',[0,2]],['Share the Maine Lobster Risotto and finish with the Chocolate Fondant and two spoons. About $32 each.',[2,3]],['For an anniversary, start with the Scallops, share the Lamb, and finish with the Fondant. Tell your server so they can add a touch.',[0,1,3]],['With the Scallops, a crisp Chablis, $16 a glass. With the Lamb, a Syrah, $18.',[0,1]],['A tasting for one: Seared Scallops, Herb-Crusted Lamb, Chocolate Fondant. $86 per guest.',[0,1,3]],['Sample text: your chef’s story goes here, in your own words.',[]],['High-protein picks: the Herb-Crusted Lamb (about 46 g) and the Seared Scallops (about 28 g). Sample values.',[1,0]]],
+  other:'In the full version, I answer anything about the menu.'},
+ fr:{chips:['Quelque chose de léger','Sans gluten','Pour deux','Anniversaire','Accord vin'],
+  ans:[['Essayez les Saint-Jacques : purée de chou-fleur et beurre blanc aux agrumes, 28 $.',[0]],['Les Saint-Jacques et le risotto au homard sont sans gluten. Signalez toute allergie à votre serveur. La cuisine confirme chaque plat.',[0,2]],['Partagez le risotto au homard et terminez par le fondant au chocolat avec deux cuillères. Environ 32 $ chacun.',[2,3]],['Pour un anniversaire, commencez par les Saint-Jacques, partagez l’agneau et terminez par le fondant. Prévenez votre serveur pour une attention.',[0,1,3]],['Avec les Saint-Jacques, un Chablis vif, 16 $ le verre. Avec l’agneau, une Syrah, 18 $.',[0,1]],['Un menu dégustation : Saint-Jacques, agneau en croûte d’herbes, fondant au chocolat. 86 $ par convive.',[0,1,3]],['Texte exemple : l’histoire de votre chef, dans vos mots.',[]],['Riches en protéines : l’agneau en croûte d’herbes (environ 46 g) et les Saint-Jacques (environ 28 g). Valeurs d’exemple.',[1,0]]],
+  other:'Dans la version complète, je réponds à toutes vos questions sur le menu.'},
+ es:{chips:['Algo ligero','Sin gluten','Para dos','Aniversario','Maridaje'],
+  ans:[['Pruebe las Vieiras selladas: puré de coliflor y beurre blanc de cítricos, $28.',[0]],['Las Vieiras y el Risotto de langosta son sin gluten. Avise a su mesero de cualquier alergia. La cocina confirma cada plato.',[0,2]],['Compartan el Risotto de langosta y terminen con el Fondant de chocolate y dos cucharas. Unos $32 cada uno.',[2,3]],['Para un aniversario, empiecen con las Vieiras, compartan el Cordero y terminen con el Fondant. Avise a su mesero para un detalle.',[0,1,3]],['Con las Vieiras, un Chablis fresco, $16 la copa. Con el Cordero, un Syrah, $18.',[0,1]],['Un degustación: Vieiras, Cordero en costra de hierbas, Fondant de chocolate. $86 por persona.',[0,1,3]],['Texto de muestra: aquí va la historia de su chef, con sus palabras.',[]],['Altos en proteína: el Cordero en costra de hierbas (unos 46 g) y las Vieiras (unos 28 g). Valores de muestra.',[1,0]]],
+  other:'En la versión completa, respondo cualquier pregunta sobre el menú.'}
+};
+
+var S={mode:'phone',webOff:0,webCat:'all',lang:'en',tpl:0,view:'menu',cat:'all',flt:{rec:0,hp:0,veg:0,nogl:0,noegg:0,lc:0},spice:{0:0,1:1,2:0},dish:0,favs:{},cart:{},pair:false,chat:[],typing:false};
+var app=$('app');
+function t(k){return T[S.lang][k]}
+function dn(d){var x=d[S.lang]||{},e=d.en;return {n:x.n||e.n,s:x.s||e.s,d:x.d||e.d,i:x.i||e.i,a:x.a||e.a,c:x.c||e.c,p:x.p||e.p}}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function money(n){return '$'+n}
+
+/* ---------- render ---------- */
+function cartCount(){var n=0;for(var k in S.cart)n+=S.cart[k];return n}
+function renderHdr(){
+  var P=TP[S.tpl];
+  var burger='<button class="ibtn" data-act="burger" aria-label="Menu">'+I.burger+'</button>';
+  var right={search:'<button class="ibtn" data-act="goask" data-i="-1" aria-label="Search">'+I.search+'</button>',
+    bag:'<button class="ibtn" data-act="cart" aria-label="Order">'+I.bag+'<span class="badge" id="badge"></span></button>',
+    scan:'<button class="ibtn" data-act="quickar" aria-label="AR">'+I.scan+'</button>',burger:burger}[P.hr];
+  $('hdr').innerHTML='<div class="l">'+(P.hl==='burger'?burger:'')+'</div>'+
+   '<div class="logo">'+(P.pre?'<span style="letter-spacing:.4em">'+P.pre+'</span>':'')+'<b>'+P.n+'</b>'+(P.pre?'':'<span>'+P.s+'</span>')+'</div>'+
+   '<div class="r">'+right+'</div>';
+  updBadge();
+}
+function updBadge(){var b=$('badge');if(!b)return;var n=cartCount();b.textContent=n;b.style.display=n?'grid':'none'}
+function renderTabs(){
+  var P=TP[S.tpl];app.classList.toggle('notabs',!P.tabs);
+  if(!P.tabs){$('tabs').innerHTML='';return}
+  var ic={home:I.home,menu:I.menu,ar:I.ar,ask:I.spark,concierge:I.spark,experience:I.wine,occasions:I.cal,you:I.user,favs:I.heart,mydining:I.user};
+  var lab={home:'home',menu:'menu',ar:'ar',ask:'ask',concierge:'concierge',experience:'experience',occasions:'occasions',you:'you',favs:'favs',mydining:'mydining'};
+  var act={home:'home',menu:'list',ar:'ar',ask:'ask',concierge:'ask',experience:'ask',occasions:'occ',you:'saved',favs:'saved',mydining:'saved'};
+  $('tabs').className='tabs tabs-'+P.k;
+  $('tabs').innerHTML=P.tabs.map(function(x){
+    var on=(x==='home'&&S.view==='menu')||(x==='ask'||x==='concierge'||x==='experience')&&S.view==='ask'||((x==='favs'||x==='mydining'||x==='you')&&S.view==='saved')||(x==='menu'&&P.tabs.indexOf('home')<0&&(S.view==='menu'||S.view==='dish'));
+    return '<button class="'+(on?'on':'')+'" data-act="tab" data-v="'+act[x]+'">'+ic[x]+'<span>'+t(lab[x])+'</span></button>';
+  }).join('');
+}
+function filtered(){
+  return D.filter(function(d){
+    if(TP[S.tpl].k==='veralight'&&!d.imgL)return false;
+    if(S.cat!=='all'&&d.cat!==S.cat)return false;
+    if(S.flt.rec&&!d.rec)return false;
+    if(S.flt.hp&&!d.hp)return false;
+    if(S.flt.lc&&!d.lc)return false;
+    if(S.flt.veg&&!d.veg)return false;
+    if(S.flt.nogl&&d.gl)return false;
+    if(S.flt.noegg&&d.egg)return false;
+    return true;
+  });
+}
+function tagsOf(d){var a=[];if(d.hp)a.push(t('hp'));if(!d.gl)a.push(({en:'Gluten-free',fr:'Sans gluten',es:'Sin gluten'})[S.lang]);if(d.veg)a.push(t('veg'));return a.slice(0,3)}
+function thumb(d){return (TP[S.tpl].k==='veralight'&&d.imgL)?d.imgL:d.img}
+function rowHTML(d){
+  var x=dn(d),P=TP[S.tpl],plus=(P.k==='noir'||P.k==='nova');
+  return '<div class="drow" data-act="open" data-i="'+d.id+'"><img src="'+thumb(d)+'" alt=""><div class="dmeta">'+(d.rec&&P.home!=='tiles'?'<u class="rec">'+I.spark+t('aiPick')+'</u>':'')+'<b>'+esc(x.n)+'</b><span>'+esc(x.s)+'</span><em>'+money(d.price)+'</em></div>'+
+   (plus?'<button class="rcir" data-act="add" data-i="'+d.id+'" aria-label="'+t('add')+'">'+I.plus+'</button>':'<button class="heart'+(S.favs[d.id]?' on':'')+'" data-act="fav" data-i="'+d.id+'" aria-label="Save">'+(S.favs[d.id]?I.heartF:I.heart)+'</button><span class="chev">'+I.next+'</span>')+'</div>';
+}
+function heroHTML(P,c){
+  var k=P.k,eb='<div class="eyebrow">'+esc(c[0])+'</div>',h1=function(sz){return '<h1 class="disp" style="font-size:'+(sz||40)+'px">'+esc(c[1])+'</h1>'};
+  var explore='<button class="pill" data-act="explore">'+t('explore')+' '+I.arrow+'</button>';
+  var tile=function(act,ic,lab,on){return '<button class="vt'+(on?' on':'')+'" data-act="'+act+'">'+ic+'<span>'+lab+'</span></button>'};
+  if(k==='veralight')return '<div class="ph vlh"><img src="assets/p_veralight.jpg" alt=""></div><div class="hc">'+eb+h1(42)+'<p>'+esc(c[2])+'</p></div>';
+  if(k==='verasand')return '<div class="hc top">'+'<div class="eyebrow dash">— '+esc(c[0])+'</div>'+h1(46)+'<p>'+esc(c[2])+'</p>'+explore+'</div><div class="vtiles t3">'+tile('explore',I.leaf,t('menu'))+tile('goask" data-i="-1',I.spark,CS[S.lang],1)+tile('goask" data-i="3',I.cal,t('events'))+'</div><div class="pstrip"><img src="assets/p_verasand.jpg" alt=""></div>';
+  if(k==='veradark')return '<div class="hc top">'+eb+h1(40)+'<i class="gline"></i><p>'+esc(c[2])+'</p>'+explore+'</div><div class="pstrip fade"><img src="assets/p_veradark.jpg" alt=""></div>';
+  if(k==='veramed')return '<div class="pstrip top0"><img src="assets/p_veramed.jpg" alt=""></div><div class="hc">'+eb+h1(40)+'<p>'+esc(c[2])+'</p>'+explore+'</div><div class="vtiles t4">'+tile('explore',I.menu,t('menu'))+tile('goask" data-i="-1',I.spark,CS[S.lang])+tile('goask" data-i="3',I.cal,t('events'))+tile('quickar',I.ar,t('arview'))+'</div><div class="pstrip"><img src="assets/p_verasea.jpg" alt=""></div>';
+  if(k==='noir'){var d=D[Math.min(2,D.length-1)],x=dn(d);return '<div class="ph full"><img src="assets/p_noir.jpg" alt=""></div><div class="hc noir">'+'<div class="eyebrow">'+t('chefsel')+'</div><h1 class="disp" style="font-size:36px">'+esc(x.n)+'</h1><p class="it">'+esc(x.s)+'</p><div class="pr">$'+d.price+'</div><div class="cta2"><button class="pill beige" data-act="cardar" data-i="2">'+I.ar+t('viewar')+'</button><button class="rcir big" data-act="add" data-i="2" aria-label="'+t('add')+'">'+I.plus+'</button></div><div class="dots"><i class="on"></i><i></i><i></i></div></div><div class="thumbs">'+[2,1,0].filter(function(j){return j<D.length}).map(function(j,n){return '<button class="'+(n===0?'on':'')+'" data-act="open" data-i="'+j+'"><img src="'+D[j].img+'" alt=""></button>'}).join('')+'</div>'}
+  if(k==='nova')return '<div class="ph full"><img src="assets/p_nova.jpg" alt=""></div><div class="hc">'+h1(40)+'<p class="it">'+esc(c[2])+'</p><button class="pill" data-act="cart">'+t('orderNow')+' '+I.arrow+'</button></div><div class="circs">'+[['explore',I.menu,t('menu')],['quickar',I.ar,t('ar')],['goask" data-i="4',I.wine,t('wine')],['goask" data-i="-1',I.spark,CS[S.lang]]].map(function(q,n){return '<button data-act="'+q[0]+'"><i class="'+(n===0?'on':'')+'">'+q[1]+'</i><span>'+q[2]+'</span></button>'}).join('')+'</div><button class="arcard" data-act="quickar"><div><b class="disp">'+t('viewar')+'</b><span>'+t('viewarS')+'</span></div><img src="assets/p_novaplate.jpg" alt=""></button>';
+  if(k==='kinara')return '<div class="kin"><img class="leaf" src="assets/p_kinaraleaf.jpg" alt=""><h1 class="disp">'+esc(c[1])+'</h1><button class="orb" data-act="goask" data-i="-1" aria-label="Ask">'+I.wave+'</button><p class="orbt">'+t('tell')+'</p></div>';
+  if(k==='lumina')return '<div class="ph full tall"><img src="assets/p_lumina.jpg" alt=""></div><div class="hc lum"><h1 class="disp" style="font-size:38px">'+t('sig')+'</h1><button class="rcir big" data-act="open" data-i="0" aria-label="'+t('explore')+'">'+I.arrow+'</button></div>';
+  if(k==='velora')return '<div class="velhero"><div class="vel"><div><h1 class="disp" style="font-size:40px">'+esc(c[1])+'</h1><p>'+esc(c[2])+'</p></div><img src="assets/h_velora.jpg" alt=""></div><button class="askbar" data-act="goask" data-i="-1">'+I.spark+'<span>'+t('crave')+'</span><i>'+I.mic+'</i></button></div><div class="vtiles t4 glass">'+tile('explore',I.dome,t('menu'),1)+tile('goask" data-i="4',I.wine,t('pairings'))+tile('goask" data-i="7',I.leaf,t('nutrition'))+tile('prefs',I.sliders,t('prefs'))+'</div><div class="sigh"><h2 class="disp">'+t('sig')+'</h2><button data-act="explore">'+t('viewall')+' '+I.arrow+'</button></div>';
+  if(k==='maison')return '<div class="ph maih"><img src="assets/p_maison.jpg" alt=""></div><div class="hc left">'+eb+h1(40)+'<p>'+esc(c[2])+'</p></div><button class="askbar light" data-act="goask" data-i="-1">'+I.spark+'<span>Ask our AI Concierge...</span><i>'+I.mic+'</i></button><div class="guide">'+[['g1',I.dome,5],['g2',I.wine,4],['g3',I.cal,3],['g4',I.chefh,6]].map(function(g){return '<button data-act="goask" data-i="'+g[2]+'" data-q="'+t(g[0])[0]+'">'+g[1].replace('<svg','<svg class="l"')+'<div><b>'+t(g[0])[0]+'</b><span>'+t(g[0])[1]+'</span></div>'+I.next.replace('<svg','<svg class="r"')+'</button>'}).join('')+'</div>';
+  return '';
+}
+var CS={en:'Concierge',fr:'Concierge',es:'Conserje'};
+var CT={en:{m:'Concierge matched',d:'dishes',n:'No match. Loosen a filter.',pick:'Tonight’s pick'},fr:{m:'Le concierge a trouvé',d:'plats',n:'Aucun résultat. Retirez un filtre.',pick:'Choix du soir'},es:{m:'El conserje encontró',d:'platos',n:'Sin resultados. Quite un filtro.',pick:'Elección de hoy'}};
+function why(d){return d.hp?t('hp')+' · '+d.prot+' g':(d.lc?t('lc'):d.kcal+' '+t('kcalU'))}
+function conc(nobar){
+  var list=filtered(),on=Object.keys(S.flt).some(function(k){return S.flt[k]}),T=CT[S.lang];
+  var pk=D.filter(function(d){return d.rec})[0];
+  var note=list.length?(on?T.m+' '+list.length+' '+T.d:T.pick+': '+dn(pk).n):T.n;
+  var chips=[['rec','foryou'],['hp','hp'],['veg','veg'],['nogl','nogl'],['noegg','noegg'],['lc','lc']].map(function(f){return '<button class="chip'+(S.flt[f[0]]?' on':'')+'" data-act="flt" data-v="'+f[0]+'">'+t(f[1])+'</button>'}).join('');
+  return '<div class="conc">'+(nobar?'':'<button class="cbar" data-act="goask" data-i="-1">'+I.spark+'<span>'+t('crave')+'</span><i>'+I.mic+'</i></button>')+'<div class="chips" id="chips">'+chips+'</div><p class="cnote">'+I.spark+'<span>'+esc(note)+'</span></p></div>';
+}
+function catsHTML(){return '<div class="cats'+(TP[S.tpl].k==='veralight'?' pillcats':'')+'" id="cats">'+[['all','all'],['starters','starters'],['mains','mains'],['desserts','desserts']].map(function(c){return '<button class="'+(S.cat===c[0]?'on':'')+'" data-act="cat" data-v="'+c[0]+'">'+t(c[1])+'</button>'}).join('')+'</div>'}
+function num(i){return (i<9?'0':'')+(i+1)}
+var LS={
+ veralight:function(l){return l.map(function(d){var x=dn(d);return '<div class="m1" data-act="open" data-i="'+d.id+'"><img class="fd" src="'+d.imgL+'" alt=""><b>'+esc(x.n)+'</b><span>'+esc(x.s)+'</span><em>'+money(d.price)+'</em></div>'}).join('')},
+ verasand:function(l){return l.map(function(d,n){var x=dn(d);return '<div class="m2" data-act="open" data-i="'+d.id+'"><img src="'+d.img+'" alt=""><div class="t"><small>'+num(n)+'</small><b>'+esc(x.n)+'</b><span>'+esc(x.s)+'</span><em>'+money(d.price)+'</em></div></div>'}).join('')},
+ veradark:function(l){return l.map(function(d,n){var x=dn(d);return '<div class="m3" data-act="open" data-i="'+d.id+'"><i class="gh" style="background-image:url('+d.img+')"></i><div class="t"><small>'+num(n)+'</small><b>'+esc(x.n)+'</b><span>'+esc(x.s)+'</span><em>'+money(d.price)+'</em></div></div>'}).join('')},
+ veramed:function(l){return l.map(function(d,n){var x=dn(d);return '<div class="m4'+(n%2?' r':'')+'" data-act="open" data-i="'+d.id+'"><i class="gh" style="background-image:url('+d.img+')"></i><div class="t"><b>'+esc(x.n)+'</b><span>'+esc(x.s)+'</span><em>'+money(d.price)+'</em></div></div>'}).join('')},
+ noir:function(l){return l.map(function(d){var x=dn(d);return '<div class="m5" data-act="open" data-i="'+d.id+'"><img class="vf" src="'+d.img+'" alt=""><div class="t"><b>'+esc(x.n)+'</b><span>'+esc(x.s)+'</span><div class="row2"><em>'+money(d.price)+'</em><button class="lnk" data-act="cardar" data-i="'+d.id+'">'+I.ar+t('viewar')+'</button><button class="rcir" data-act="add" data-i="'+d.id+'" aria-label="'+t('add')+'">'+I.plus+'</button></div></div></div>'}).join('')},
+ nova:function(l){return '<div class="nv" id="nv">'+l.map(function(d){var x=dn(d);return '<div class="sl" data-act="open" data-i="'+d.id+'"><img class="vf" src="'+d.img+'" alt=""><div class="t"><b>'+esc(x.n)+'</b><span>'+esc(x.s)+'</span><em>'+money(d.price)+'</em></div><button class="rcir" data-act="add" data-i="'+d.id+'" aria-label="'+t('add')+'">'+I.plus+'</button></div>'}).join('')+'</div><div class="dots2" id="nvd">'+l.map(function(d,n){return '<i class="'+(n===0?'on':'')+'"></i>'}).join('')+'</div>'},
+ kinara:function(l){return l.map(function(d){var x=dn(d);return '<div class="m7" data-act="open" data-i="'+d.id+'"><i class="orbi" style="background-image:url('+d.img+')"></i><div class="t"><b>'+esc(x.n)+'</b><span>'+esc(x.s)+'</span><em>'+money(d.price)+'</em></div></div>'}).join('')},
+ lumina:function(l){return l.map(function(d){var x=dn(d);return '<div class="lp" data-act="open" data-i="'+d.id+'"><i class="bg" style="background-image:url('+d.img+')"></i><div class="t"><b>'+esc(x.n)+'</b><span>'+esc(x.s)+'</span><em>'+money(d.price)+'</em></div><button class="rcir big" data-act="open" data-i="'+d.id+'" aria-label="'+t('explore')+'">'+I.arrow+'</button></div>'}).join('')},
+ velora:function(l){return l.map(function(d){var x=dn(d);return '<div class="m9" data-act="open" data-i="'+d.id+'"><i class="gh" style="background-image:url('+d.img+')"></i><div class="t">'+(d.rec?'<u class="ai">'+I.spark+t('aiPick')+'</u>':'')+'<b>'+esc(x.n)+'</b><span class="why">'+esc(why(d))+'</span><em>'+money(d.price)+'</em></div></div>'}).join('')},
+ maison:function(l){var out='';['starters','mains','desserts'].forEach(function(c){var it=l.filter(function(d){return d.cat===c});if(!it.length)return;out+='<div class="mh"><i style="background-image:url('+it[0].img+')"></i><h3 class="disp">'+t(c)+'</h3></div>'+it.map(function(d){var x=dn(d);return '<div class="mi" data-act="open" data-i="'+d.id+'"><div class="r1"><b class="disp">'+esc(x.n)+'</b><u></u><em>'+money(d.price)+'</em></div><span>'+esc(x.s)+'</span><small>'+esc(tagsOf(d).join(' · '))+'</small></div>'}).join('')});return out}
+};
+function renderMenu(){
+  var list=filtered(),P=TP[S.tpl],c=P[S.lang],k=P.k;
+  var nobar=(k==='velora'||k==='maison'||k==='kinara');
+  var listH=list.length?LS[k](list):'<div class="empty">'+t('none')+'</div>';
+  $('v-menu').innerHTML=heroHTML(P,c)+conc(nobar)+catsHTML()+'<div class="mlist m-'+k+'" id="list">'+listH+'</div>'+
+   '<div class="qrrow"><div class="qr">'+qrSVG()+'<em>Sample QR</em></div><div><b class="disp">'+t('qrT')+'</b><span>'+t('qrS')+'</span></div></div>';
+}
+document.addEventListener('scroll',function(e){var n=e.target;if(n&&n.id==='nv'){var j=Math.round(n.scrollLeft/n.clientWidth),ds=$('nvd');if(ds)Array.prototype.forEach.call(ds.children,function(x,q){x.classList.toggle('on',q===j)})}},true);
+function qrSVG(){var n=21,seed=7;function rnd(){seed=(seed*9301+49297)%233280;return seed/233280}
+  function fin(x,y){return (x<7&&y<7)||(x>n-8&&y<7)||(x<7&&y>n-8)}
+  var out='<svg viewBox="0 0 '+n+' '+n+'" shape-rendering="crispEdges">';
+  for(var y=0;y<n;y++)for(var x=0;x<n;x++){var on;
+    if(fin(x,y)){var ox=x>n-8?x-(n-7):x,oy=y>n-8?y-(n-7):y;on=(ox==0||ox==6||oy==0||oy==6)||(ox>=2&&ox<=4&&oy>=2&&oy<=4)}
+    else on=rnd()>.52;
+    if(on)out+='<rect x="'+x+'" y="'+y+'" width="1" height="1" fill="currentColor"/>'}
+  return out+'</svg>'}
+function renderDish(){
+  var d=D[S.dish],x=dn(d),P=TP[S.tpl],sp=S.spice[d.id]||0;
+  var hero=d.model?'<div class="dhero is3d"><model-viewer id="mv" class="stage3" src="'+esc(d.model)+'"'+(d.usdz?' ios-src="'+esc(d.usdz)+'"':'')+' alt="'+esc(dn(d).n)+'" camera-controls auto-rotate shadow-intensity="1" exposure="1.05" ar ar-modes="webxr scene-viewer quick-look" ar-scale="fixed" ar-placement="floor" touch-action="pan-y"><span slot="ar-button"></span></model-viewer>':d.has3d?'<div class="dhero is3d"><div class="stage3" id="stage"></div>':'<div class="dhero"><div class="dbg" style="background-image:url('+d.img+')"></div><button class="bigplay" data-act="play" data-i="'+d.id+'" aria-label="'+t('playT')+'">'+I.play+'</button>';
+  var chilies='';for(var k=1;k<=3;k++)chilies+='<button class="chili'+(sp>=k?' on':'')+'" data-act="chili" data-i="'+d.id+'" data-v="'+k+'" aria-label="'+t('spiceL')[k]+'">'+I.chili+'</button>';
+  var al=x.a.map(function(a,j){return '<div class="alg">'+(I['al_'+d.ac[j]]||I.leaf)+'<span>'+esc(a)+'</span></div>'}).join('');
+  $('v-dish').innerHTML=
+   hero+
+    '<div class="htop"><button class="gl" data-act="back" aria-label="'+t('back')+'">'+I.back+'</button><button class="gl'+(S.favs[d.id]?' red':'')+'" data-act="fav" data-i="'+d.id+'" aria-label="Save">'+(S.favs[d.id]?I.heartF:I.heart)+'</button></div>'+
+    (P.badge?'<div class="badge360"><div><b>360°</b>AR</div></div>':'')+
+    '<button class="nav p" data-act="prev" aria-label="Previous">'+I.back+'</button><button class="nav n" data-act="next" aria-label="Next">'+I.next+'</button>'+
+   '</div>'+
+   '<div class="dhead"><div class="eyebrow">'+t(d.cat)+(d.rec?' · '+t('aiPick'):'')+'</div><h2 class="disp">'+esc(x.n)+'</h2><p class="ddesc">'+esc(x.d)+'</p><div class="dprice2">'+money(d.price)+'</div></div>'+
+   '<div class="dock"><button data-act="play" data-i="'+d.id+'"><i>'+I.play+'</i><span>'+t('playT')+'</span></button><button data-act="cardar" data-i="'+d.id+'"><i>'+I.ar+'</i><span>'+t('arT')+'</span></button><button class="ai" data-act="askdish" data-i="'+d.id+'"><i>'+I.spark+'</i><span>'+t('aiDish')+'</span></button></div>'+
+   '<div class="blk"><div class="lab2">'+t('glance')+'</div><div class="glance"><div>'+I.clock+'<b>~'+d.prep+'</b><span>'+t('minU')+'</span></div><div>'+I.flame+'<b>'+d.kcal+'</b><span>'+t('kcalU')+'</span></div><div>'+I.dumb+'<b>'+d.prot+'</b><span>'+t('protU')+'</span></div></div><p class="fine2">'+t('sampv')+'</p></div>'+
+   (d.spice>=0?'<div class="blk" id="custom"><div class="lab2">'+t('spice')+'</div><div class="spice">'+chilies+'<span id="spl">'+t('spiceL')[sp]+'</span></div></div>':'')+
+   '<div class="blk"><div class="lab2">'+t('best')+'</div><div class="pairbig">'+I.wine+'<span class="disp">'+esc(x.p)+'</span></div></div>'+
+   '<div class="blk"><div class="lab2">'+t('ingr')+'</div><div class="ingr">'+x.i.map(function(i){return '<span>'+esc(i)+'</span>'}).join('')+'</div></div>'+
+   '<div class="blk"><div class="lab2">'+t('alle')+'</div><div class="algs">'+al+'</div><p class="fine2">'+t('conf')+'</p></div>'+
+   '<div class="blk"><div class="lab2">'+t('chef')+'</div><p class="chefq disp">“'+esc(x.c)+'”</p></div>'+
+   '<div class="addrow"><button class="pill" data-act="add" data-i="'+d.id+'">'+t('add')+' · '+money(d.price)+'</button></div>';
+  attachCanvas();
+}
+function renderSaved(){
+  var ids=D.filter(function(d){return S.favs[d.id]});
+  $('v-saved').innerHTML='<div class="savedh"><h1 class="disp">'+t('savedT')+'</h1></div><div class="list">'+(ids.length?ids.map(rowHTML).join(''):'<div class="empty">'+t('savedEmpty')+'</div>')+'</div>';
+}
+function renderChat(){
+  var c=$('chat');
+  c.innerHTML=S.chat.map(function(m){
+    if(m.typing)return '<div class="msg a typing"><i></i><i></i><i></i></div>';
+    var ph=(m.imgs||[]).map(function(k){return '<img src="'+D[k].img+'" alt="">'}).join('');
+    return '<div class="msg '+m.r+'">'+esc(m.text)+(ph?'<div class="ph">'+ph+'</div>':'')+'</div>';
+  }).join('');
+  var v=$('v-ask');setTimeout(function(){v.scrollTop=v.scrollHeight},30);
+}
+function renderAskText(){
+  $('askT').textContent=t('askT');$('askS').textContent=t('askS');$('askin').placeholder=t('ph');$('fine').textContent=t('scripted');
+  $('micb').innerHTML=I.mic;$('sendb').innerHTML=I.up;
+  Array.prototype.forEach.call($('langs').children,function(b){b.classList.toggle('on',b.getAttribute('data-v')===S.lang)});
+  $('sugg').innerHTML=CH[S.lang].chips.map(function(c,i){return '<button data-act="intent" data-i="'+i+'">'+esc(c)+'</button>'}).join('')+'<button data-act="intent" data-i="7">'+esc(t('hpq'))+'</button>';
+}
+function resetChat(){S.chat=[{r:'a',text:t('hi')}];S.typing=false;renderChat()}
+function renderAll(){
+  renderHdr();renderTabs();renderMenu();renderDish();renderSaved();renderAskText();
+}
+function show(v){
+  closeAR();
+  S.view=v;
+  ['menu','dish','ask','saved'].forEach(function(k){$('v-'+k).classList.toggle('on',k===v)});
+  renderTabs();
+  if(v==='dish')attachCanvas();
+  var el=$('v-'+v);if(el)el.scrollTop=0;$('hdr').classList.remove('solid');
+}
+function toast(msg){var el=$('toast');el.textContent=msg;el.classList.add('on');clearTimeout(toast._t);toast._t=setTimeout(function(){el.classList.remove('on')},1800)}
+
+/* ---------- sheet ---------- */
+var party=2,slot='7:30 PM';
+function openSheet(kind){
+  var h='';
+  if(kind==='burger'){
+    h='<h3 class="disp">'+TP[S.tpl].n+'</h3><div class="blist">'+[['tab" data-v="menu',I.menu,t('menu')],['tab" data-v="ar',I.ar,t('ar')],['tab" data-v="ask',I.spark,CS[S.lang]],['tab" data-v="saved',I.heart,t('saved')],['cart',I.bag,t('order')]].map(function(r){return '<button data-act="'+r[0]+'">'+r[1]+'<span>'+r[2]+'</span></button>'}).join('')+'</div><div class="lab">'+t('lang')+'</div><div class="chips">'+[['en','English'],['fr','Français'],['es','Español']].map(function(l){return '<button class="chip'+(S.lang===l[0]?' on':'')+'" data-act="setlang" data-v="'+l[0]+'">'+l[1]+'</button>'}).join('')+'</div>';
+  }else if(kind==='reserve'){
+    h='<h3 class="disp">'+t('reserveT')+'</h3><div class="lab">'+t('party')+'</div><div class="chips">'+[2,3,4,5].map(function(n){return '<button class="chip'+(n===party?' on':'')+'" data-act="party" data-v="'+n+'">'+(n===5?'5+':n)+'</button>'}).join('')+'</div>'+
+     '<div class="lab">'+t('time')+'</div><div class="chips">'+['6:00 PM','7:30 PM','9:00 PM'].map(function(s){return '<button class="chip'+(s===slot?' on':'')+'" data-act="slot" data-v="'+s+'">'+s+'</button>'}).join('')+'</div>'+
+     '<button class="pill" data-act="request">'+t('request')+'</button><p class="msgfine" id="sfine"></p>';
+  }else{
+    var lines='',total=0,n=0;
+    D.forEach(function(d){var q=S.cart[d.id];if(q){n++;total+=q*d.price;lines+='<div class="line"><span>'+q+' × '+esc(dn(d).n)+((S.spice[d.id]>0)?' · '+t('spice')+': '+t('spiceL')[S.spice[d.id]]:'')+'</span><span>'+money(q*d.price)+'</span></div>'}});
+    h='<h3 class="disp">'+t('cart')+'</h3>'+(n?lines+'<div class="line" style="border:0;font-weight:600"><span>'+t('total')+'</span><span>'+money(total)+'</span></div><button class="pill" data-act="place">'+t('place')+'</button><p class="msgfine" id="sfine"></p>':'<div class="empty">'+t('empty')+'</div>');
+  }
+  $('sheet').innerHTML=h;$('sheet').classList.add('on');$('scrim').classList.add('on');
+}
+function closeSheet(){$('sheet').classList.remove('on');$('scrim').classList.remove('on')}
+
+/* ---------- 3D ---------- */
+var renderer,scene,camera,dish3,ground,dragging=false,lastX=0,vel=0,spawn=1,spawnT=0,inAR=false;
+function build(){
+  renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+  renderer.setClearColor(0x000000,0);
+  renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+  scene=new THREE.Scene();
+  camera=new THREE.PerspectiveCamera(32,1,0.1,50);setCam(false);
+  scene.add(new THREE.HemisphereLight(0xffffff,0x9a8268,0.6));
+  var key=new THREE.DirectionalLight(0xfff1e0,0.85);key.position.set(3.5,6,3);key.castShadow=true;
+  key.shadow.mapSize.set(1024,1024);var sc=key.shadow.camera;sc.left=-4;sc.right=4;sc.top=4;sc.bottom=-4;sc.near=1;sc.far=20;key.shadow.radius=5;scene.add(key);
+  var fill=new THREE.DirectionalLight(0xdfe8ff,0.35);fill.position.set(-4,3,-2);scene.add(fill);
+  ground=new THREE.Mesh(new THREE.PlaneGeometry(14,14),new THREE.ShadowMaterial({opacity:0.16}));
+  ground.rotation.x=-Math.PI/2;ground.receiveShadow=true;scene.add(ground);
+  dish3=new THREE.Group();scene.add(dish3);
+  function mat(c,r,m){return new THREE.MeshStandardMaterial({color:c,roughness:r,metalness:m||0})}
+  function add(geo,m,x,y,z){var o=new THREE.Mesh(geo,m);o.position.set(x,y,z);o.castShadow=true;o.receiveShadow=true;dish3.add(o);return o}
+  var pf=[[0,0.04],[1.45,0.04],[1.85,0.10],[2.1,0.25],[2.15,0.28],[2.09,0.285],[1.82,0.19],[1.45,0.12],[0,0.12]].map(function(p){return new THREE.Vector2(p[0],p[1])});
+  add(new THREE.LatheGeometry(pf,96),mat(0xeeebe6,0.25,0.02),0,0,0);
+  var coulis=add(new THREE.CylinderGeometry(0.7,0.7,0.02,48),mat(0xa3102e,0.18,0.05),0.45,0.13,0.62);coulis.scale.set(1.5,1,0.62);coulis.rotation.y=-0.3;
+  add(new THREE.CylinderGeometry(0.6,0.7,0.88,64),mat(0x3b2015,0.82),-0.5,0.56,-0.05);
+  add(new THREE.CylinderGeometry(0.585,0.6,0.04,64),mat(0x56342a,0.95),-0.5,1.0,-0.05);
+  var lava=add(new THREE.SphereGeometry(0.5,32,16),mat(0x25100a,0.16,0.12),-0.18,0.2,0.6);lava.scale.set(1.1,0.2,0.62);
+  var ic=add(new THREE.SphereGeometry(0.5,48,32),mat(0xf7edd2,0.92),0.95,0.58,-0.3);ic.scale.set(1,0.93,1);
+  var rb=new THREE.IcosahedronGeometry(0.17,1),rm=new THREE.MeshStandardMaterial({color:0xb5133c,roughness:0.5,flatShading:true});
+  [[0.3,0.3,0.92],[0.62,0.29,0.74],[0.08,0.3,1.0]].forEach(function(p){var b=add(rb,rm,p[0],p[1],p[2]);b.scale.set(1,0.95,1)});
+  var leaf=add(new THREE.SphereGeometry(0.14,16,8),mat(0x3f8f4a,0.5),0.5,0.46,0.88);leaf.scale.set(1.5,0.12,0.8);leaf.rotation.y=0.6;
+  var cm=mat(0x2a1710,0.9),cg=new THREE.SphereGeometry(0.035,8,6);
+  for(var i=0;i<26;i++){var a=Math.random()*6.28,r=0.95+Math.random()*0.55;add(cg,cm,0.95+Math.cos(a)*r*0.7,0.14,-0.3+Math.sin(a)*r*0.6)}
+  dish3.rotation.y=-0.5;
+  var cv=renderer.domElement;
+  cv.addEventListener('pointerdown',function(e){dragging=true;lastX=e.clientX;vel=0;try{cv.setPointerCapture(e.pointerId)}catch(_){}});
+  cv.addEventListener('pointermove',function(e){if(!dragging)return;var dx=e.clientX-lastX;lastX=e.clientX;dish3.rotation.y+=dx*0.012;vel=dx*0.012});
+  var up=function(){dragging=false};cv.addEventListener('pointerup',up);cv.addEventListener('pointercancel',up);
+  requestAnimationFrame(loop);
+}
+function setCam(ar){
+  if(ar){camera.position.set(0,4.4,8.6);camera.lookAt(0,0.1,0)}
+  else{camera.position.set(0,3.0,8.4);camera.lookAt(0,0.5,0)}
+}
+function applySkin3D(){if(ground)ground.material.opacity=TP[S.tpl].dk?.4:.18}
+function attachCanvas(){
+  if(!renderer||inAR)return;
+  var st=$('stage');if(!st)return;
+  st.insertBefore(renderer.domElement,st.firstChild);resize();
+}
+function resize(){
+  if(!renderer)return;
+  var host=inAR?$('arhost'):$('stage');if(!host)return;
+  var w=host.clientWidth||320,h=host.clientHeight||320;
+  renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();
+}
+window.addEventListener('resize',resize);
+function loop(){
+  requestAnimationFrame(loop);
+  if(!renderer)return;
+  var visible=inAR||(S.view==='dish'&&D[S.dish].has3d&&$('stage'));
+  if(!visible)return;
+  if(!dragging){dish3.rotation.y+=0.006+vel;vel*=0.94}
+  if(spawn<1){spawnT+=0.03;var p=Math.min(spawnT,1),c=1.70158,e=1+(c+1)*Math.pow(p-1,3)+c*Math.pow(p-1,2);dish3.scale.setScalar(Math.max(0.001,e*(inAR?0.82:1)));if(p>=1)spawn=1}
+  renderer.render(scene,camera);
+}
+function openAR(){
+  if(!renderer)return;
+  inAR=true;$('ar').classList.add('on');
+  $('arhost').appendChild(renderer.domElement);setCam(true);resize();
+  dish3.scale.setScalar(0.001);
+  $('arscan').innerHTML=t('scan')+'<br><span style="display:inline-block;margin-top:12px"><i></i><i></i><i></i></span>';
+  $('arscan').style.opacity=1;$('arbottom').style.opacity=0;
+  $('artag').textContent=t('artag');$('arp').textContent=t('drag');$('ardone').textContent=t('done');
+  setTimeout(function(){
+    if(!inAR)return;
+    $('arscan').style.opacity=0;spawn=0;spawnT=0;
+    setTimeout(function(){if(inAR)$('arbottom').style.opacity=1},700);
+  },1700);
+}
+function closeAR(){
+  if(!inAR)return;
+  inAR=false;$('ar').classList.remove('on');
+  setCam(false);dish3.scale.setScalar(1);spawn=1;
+  var st=$('stage');if(st)st.insertBefore(renderer.domElement,st.firstChild);resize();
+}
+
+/* ---------- chat ---------- */
+var replying=false;
+function reply(q,idx){
+  if(MENU){return replyLive(q)}
+  if(replying)return;replying=true;
+  S.chat.push({r:'u',text:q});S.chat.push({typing:true});renderChat();
+  setTimeout(function(){
+    S.chat.pop();
+    var r=idx>=0?CH[S.lang].ans[idx]:[CH[S.lang].other,[]];
+    S.chat.push({r:'a',text:r[0],imgs:r[1]});renderChat();replying=false;
+  },750);
+}
+
+
+/* ---------- platform data ---------- */
+var Q=new URLSearchParams(location.search),MENU=null;
+if(Q.get('chrome')==='0')document.body.classList.add('nochrome');
+function goAR(i){
+  var d=D[i];
+  if(i==null||i<0||!d){toast(t('arNote'));return}
+  S.dish=i;renderDish();show('dish');
+  if(d.model){
+    setTimeout(function(){var mv=$('mv');if(mv&&mv.canActivateAR){mv.activateAR()}else toast(ARHINT[S.lang]||ARHINT.en)},60);
+  }else if(d.has3d){openAR()}else toast(t('arNote'));
+}
+var ARHINT={en:'Open this menu on your phone to place the dish on your table.',fr:'Ouvrez ce menu sur votre téléphone pour poser le plat sur votre table.',es:'Abra este menú en su teléfono para poner el plato en su mesa.'};
+function replyLive(q){
+  if(replying)return;replying=true;
+  S.chat.push({r:'u',text:q});S.chat.push({typing:true});renderChat();
+  fetch('/api/concierge',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({slug:MENU.slug,q:q,lang:S.lang})})
+   .then(function(r){return r.json()}).then(function(r){
+     S.chat.pop();
+     var imgs=(r.dishIds||[]).map(function(k){for(var n=0;n<D.length;n++)if(D[n].key===k)return n;return -1}).filter(function(n){return n>=0});
+     S.chat.push({r:'a',text:r.text+(r.notes&&r.notes.length?' '+r.notes.join(' '):''),imgs:imgs});renderChat();replying=false;
+   }).catch(function(){S.chat.pop();S.chat.push({r:'a',text:CH[S.lang].other});renderChat();replying=false});
+}
+function mapDish(x,n){
+  var AL={Gluten:'wheat',Dairy:'milk',Eggs:'egg',Fish:'fish',Shellfish:'shell'};
+  var tags=x.tags||[],als=x.allergens||[];
+  var en={n:x.name,s:x.short||'',d:x.description||x.short||'',i:(x.ingredients&&x.ingredients.length)?x.ingredients:[x.short||x.name],a:als,c:x.chefNote||'',p:x.pairing||''};
+  var o={id:n,key:x.id,cat:x.category,ac:als.map(function(a){return AL[a]||'x'}),rec:tags.indexOf('signature')>=0?1:0,hp:(tags.indexOf('high-protein')>=0||(x.protein||0)>=24)?1:0,lc:tags.indexOf('low-carb')>=0?1:0,
+    prep:x.prepMinutes||15,kcal:x.kcal||0,prot:x.protein||0,spice:x.spice==null?-1:x.spice,veg:(tags.indexOf('vegetarian')>=0||tags.indexOf('vegan')>=0)?1:0,gl:als.indexOf('Gluten')>=0?1:0,egg:als.indexOf('Eggs')>=0?1:0,
+    price:x.price,img:x.image||'assets/d_scallops.jpg',imgL:x.image||'assets/d_scallops.jpg',has3d:x.model?1:0,model:x.model||null,usdz:x.usdz||null,video:x.video||null,en:en};
+  ['fr','es'].forEach(function(l){var tr=(x.translations||{})[l];o[l]=tr?{n:tr.name,s:tr.short,d:tr.description,i:tr.ingredients,a:tr.allergens,c:tr.chefNote,p:tr.pairing}:{}});
+  return o;
+}
+function applyMenu(m){
+  MENU=m;
+  var ti=-1;TP.forEach(function(p,j){if(p.k===(Q.get('tpl')||m.template))ti=j});if(ti>=0)S.tpl=ti;
+  var P=TP[S.tpl];if(m.name){P.pre='';P.n=m.name.toUpperCase();P.s=(m.subtitle||'RESTAURANT').toUpperCase()}
+  if(m.dishes&&m.dishes.length){D.length=0;m.dishes.forEach(function(x,n){D.push(mapDish(x,n))});
+    FOND=-1;for(var n=0;n<D.length;n++)if(D[n].has3d){FOND=n;break}
+    S.spice={};D.forEach(function(d){if(d.spice>=0)S.spice[d.id]=d.spice});
+    if(D.some(function(d){return d.model})&&!window.customElements.get('model-viewer')){var sc=document.createElement('script');sc.type='module';sc.src='/vendor/model-viewer.min.js';document.head.appendChild(sc)}
+  }
+  if(m.languages&&m.languages.indexOf(S.lang)<0)S.lang=m.languages[0]||'en';
+}
+
+/* ---------- events ---------- */
+document.addEventListener('click',function(e){
+  var el=e.target.closest('[data-act]');if(!el)return;
+  var a=el.getAttribute('data-act'),v=el.getAttribute('data-v'),i=el.getAttribute('data-i');
+  if(el.closest('#sheet')&&['tab','cart','reserve','goask','setlang'].indexOf(a)>=0&&a!=='setlang')closeSheet();
+  if(i!==null)i=parseInt(i,10);
+  if(a==='chili')v=parseInt(v,10);
+  switch(a){
+   case 'skin':
+     S.tpl=parseInt(v,10);setTpl();closeSheet();show('menu');break;
+   case 'cyclelang':{var o=['en','fr','es'];S.lang=o[(o.indexOf(S.lang)+1)%3];renderAll();resetChat();break}
+   case 'setlang':S.lang=v;renderAll();resetChat();break;
+   case 'gophone':S.mode='phone';setMode();show('menu');break;
+   case 'webdish':S.mode='phone';setMode();S.dish=i;renderDish();show('dish');break;
+   case 'webcat':S.webCat=v;S.webOff=0;renderWeb();break;
+   case 'webprev':S.webOff=(S.webOff+5)%6;renderWeb();break;
+   case 'webnext':S.webOff=(S.webOff+1)%6;renderWeb();break;
+   case 'burger':openSheet('burger');break;
+   case 'prefs':{var ch=$('chips');if(ch)$('v-menu').scrollTo({top:ch.offsetTop-90,behavior:'smooth'});break}
+   case 'mode':S.mode=v;setMode();break;
+   case 'tab':
+     if(v==='home'){show('menu');break}
+     if(v==='list'){show('menu');setTimeout(function(){var l=$('cats0');if(l)$('v-menu').scrollTo({top:l.offsetTop-70,behavior:'smooth'})},60);break}
+     if(v==='occ'){show('ask');reply(CH[S.lang].chips[3],3);break}
+     if(v==='saved'){show('saved');break}
+     if(v==='ask'){show('ask');break}
+     if(v==='ar'){goAR(FOND);break}
+     if(v==='menu'){show('menu');break}
+     break;
+   case 'tab_old':
+     if(v==='menu')show('menu');
+     else if(v==='ar'){S.dish=FOND;renderDish();show('dish');openAR()}
+     else show(v);
+     break;
+   case 'cardplay':case 'play':{var dd=D[i];var vi=$('vimg');vi.innerHTML=dd.video?'<video src="'+esc(dd.video)+'" autoplay muted playsinline loop></video>':'';vi.classList.toggle('real',!!dd.video);vi.style.backgroundImage=dd.video?'none':'url('+dd.img+')';$('vidcap').textContent=t('vidCap');$('vidt').textContent=dn(dd).n;$('vid').classList.add('on');var pb=$('vidbar');pb.style.animation='none';void pb.offsetWidth;pb.style.animation='';break}
+   case 'closevid':$('vid').classList.remove('on');$('vimg').innerHTML='';break;
+   case 'cardar':goAR(i);break;
+   case 'chili':{var cur=S.spice[i]||0;S.spice[i]=(cur===v)?v-1:v;renderDish();break}
+   case 'askdish':{var dq=D[i],xq=dn(dq);show('ask');var msg=xq.n+'. '+xq.d+' '+t('alle')+': '+xq.a.join(', ')+'. '+t('best')+': '+xq.p+'.';S.chat.push({r:'u',text:xq.n+'?'});S.chat.push({r:'a',text:msg,imgs:[i]});renderChat();break}
+   case 'open':S.dish=i;S.pair=false;renderDish();show('dish');break;
+   case 'back':show('menu');break;
+   case 'prev':S.dish=(S.dish+D.length-1)%D.length;S.pair=false;renderDish();break;
+   case 'next':S.dish=(S.dish+1)%D.length;S.pair=false;renderDish();break;
+   case 'fav':
+     S.favs[i]=!S.favs[i];
+     renderMenu();renderSaved();if(S.view==='dish')renderDish();
+     break;
+   case 'quickar':goAR(FOND);break;
+   case 'quickfor':S.flt.rec=1;renderMenu();var l0=$('cats0');if(l0)$('v-menu').scrollTo({top:l0.offsetTop-70,behavior:'smooth'});break;
+   case 'quickcust':S.dish=0;renderDish();show('dish');setTimeout(function(){var c=$('custom');if(c)$('v-dish').scrollTo({top:c.offsetTop-90,behavior:'smooth'})},120);break;
+   case 'goask':show('ask');if(i>=0)reply(el.getAttribute('data-q')||CH[S.lang].chips[i]||t('g1')[0],i);break;
+   case 'explore':{var l=$('cats');if(l)$('v-menu').scrollTo({top:l.offsetTop-70,behavior:'smooth'});break}
+   case 'cat':S.cat=v;renderMenu();break;
+   case 'flt':S.flt[v]=S.flt[v]?0:1;renderMenu();break;
+   case 'ar':goAR(S.dish);break;
+   case 'ardone':closeAR();break;
+   case 'add':S.cart[i]=(S.cart[i]||0)+1;updBadge();toast(t('added'));break;
+   case 'cart':openSheet('cart');break;
+   case 'reserve':openSheet('reserve');break;
+   case 'close':closeSheet();break;
+   case 'party':party=parseInt(v,10);openSheet('reserve');break;
+   case 'slot':slot=v;openSheet('reserve');break;
+   case 'request':case 'place':{var f=$('sfine');if(f)f.textContent=t('demo');break}
+   case 'intent':reply(i===7?t('hpq'):CH[S.lang].chips[i],i);break;
+   case 'mic':$('fine').textContent=t('voice');break;
+  }
+});
+document.addEventListener('input',function(e){var el=e.target;if(el.id==='spr'){var i=parseInt(el.getAttribute('data-i'),10);S.spice[i]=parseInt(el.value,10);$('spl').textContent=t('spiceL')[S.spice[i]]}});
+$('askform').onsubmit=function(e){e.preventDefault();var q=$('askin').value.trim();if(!q)return;$('askin').value='';reply(q,-1)};
+
+
+function renderWeb(){
+  var P=TP[S.tpl],c=P[S.lang];
+  var navR={conc:'<span class="rsv">'+t('concierge')+'</span>',concdark:'<span class="rsv" style="background:#4a3e2b;color:#fff;box-shadow:none">'+t('concierge')+'</span>',bag:I.bag,lang:'<span class="lang">EN ▾</span>',ai:'<span class="rsv" style="background:#17120d;color:#fff;box-shadow:none">AI '+'Concierge</span>'}[P.navR];
+  var nav=P.nav.map(function(n,i){return '<span class="'+(i===0?'on':'')+'">'+n+'</span>'}).join('');
+  var cats=[['all','dome','all'],['starters','leaf','starters'],['mains','menu','mains'],['seafood','wine','veg'],['desserts','cal','desserts']];
+  var pool=D.filter(function(d){return S.webCat==='all'||d.cat===S.webCat});if(!pool.length)pool=D;
+  var cards='';for(var j=0;j<3;j++){var d=pool[(S.webOff+j)%pool.length];cards+='<div class="wc" data-act="webdish" data-i="'+d.id+'"><div class="im" style="background-image:url('+d.img+')"></div><div class="t"><span>'+esc(dn(d).n)+'</span><span>$'+d.price+'</span></div></div>'}
+  $('web').innerHTML='<div class="webf t-'+P.k+(P.dk?' dk':'')+'">'+
+   '<div class="wnav"><div class="wlogo">'+(P.pre?'<small style="letter-spacing:.4em;margin-bottom:2px">'+P.pre+'</small>':'')+P.n+(P.pre?'':'<small>'+P.s+'</small>')+'</div><nav>'+nav+'</nav><div class="wr">'+I.search+navR+'</div></div>'+
+   '<div class="whero"><div class="wtxt"><div class="eyebrow">'+esc(c[0])+'</div><h1 class="disp">'+esc(c[1])+'</h1><p>'+esc(c[2])+'</p><span class="wbtn" data-act="gophone">'+t('explore')+' '+I.arrow+'</span></div><div class="wimg" style="background-image:url('+P.img+')"></div></div>'+
+   '<div class="wcats">'+cats.map(function(x){return '<button class="'+(S.webCat===x[0]?'on':'')+'" data-act="webcat" data-v="'+x[0]+'">'+I[x[1]]+'<span>'+t(x[2])+'</span></button>'}).join('')+'</div>'+
+   '<div class="wcards"><button class="warr" data-act="webprev">'+I.back+'</button>'+cards+'<button class="warr" data-act="webnext">'+I.next+'</button></div></div>';
+}
+function setMode(){
+  document.body.classList.toggle('webmode',S.mode==='web');
+  Array.prototype.forEach.call($('modes').children,function(b){b.classList.toggle('on',b.getAttribute('data-v')===S.mode)});
+  if(S.mode==='web')renderWeb();else{resize()}
+}
+function setTpl(){
+  var P=TP[S.tpl];app.className='app t-'+P.k+(P.dk?' dk':'');
+  Array.prototype.forEach.call($('skins').children,function(b,j){b.classList.toggle('on',j===S.tpl)});
+  renderAll();applySkin3D();if(S.mode==='web')renderWeb();
+}
+$('skins').innerHTML=TP.map(function(p,j){return '<button data-act="skin" data-v="'+j+'" class="'+(j===0?'on':'')+'">'+p.label+'</button>'}).join('');
+['menu','dish','saved','ask'].forEach(function(k){var el=$('v-'+k);el.addEventListener('scroll',function(){$('hdr').classList.toggle('solid',el.scrollTop>(k==='dish'?330:30))})});
+function boot(){
+  try{build()}catch(err){}
+  if(!MENU&&Q.get('tpl')){TP.forEach(function(p,j){if(p.k===Q.get('tpl'))S.tpl=j})}
+  setTpl();resetChat();
+  if(Q.get('mode')==='web'){S.mode='web';setMode()}
+  if(Q.get('dish')!=null){var di=parseInt(Q.get('dish'),10);if(D[di]){S.dish=di;renderDish();show('dish')}}
+}
+if(Q.get('menu')){fetch(Q.get('menu')).then(function(r){return r.json()}).then(function(m){applyMenu(m);boot()}).catch(function(){boot()})}
+else boot();
+})();
+</script>
+</body>
+</html>

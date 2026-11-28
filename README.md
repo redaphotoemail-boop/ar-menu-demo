@@ -1,36 +1,15 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TableWren
 
-## Getting Started
+AR dishes on the diner's table, an AI concierge that knows the menu, and cinematic dish films. All of it sits on a menu template that looks like the restaurant. A membership platform by REDA.PHOTO.
 
-First, run the development server:
+- **Website:** `/` · `/templates` · `/pricing` · live demo `/m/vera`
+- **Client app:** `/app` (onboarding, menu, guided capture, studio, look, concierge, QR, membership)
+- **Owner app:** `/admin` (dashboard, studio, clients, jobs, finance, team, plans, settings)
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install && npm run dev   # demo mode, no keys needed
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To connect the database, Google sign-in, storage, AI engines and Stripe, follow **[docs/SETUP.md](docs/SETUP.md)**. For the vision, the rules and what we deliberately don't do, read **[docs/PRODUCT_BRIEF.md](docs/PRODUCT_BRIEF.md)**.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Next.js 16 · Drizzle (Neon / PGlite) · Vercel Blob · Replicate (Wan 3.0, H3, FLUX, Hunyuan3D) · Stripe · `<model-viewer>`.
